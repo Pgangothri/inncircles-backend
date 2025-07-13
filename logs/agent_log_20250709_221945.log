@@ -1,0 +1,18 @@
+2025-07-09 22:19:45,178 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s
+2025-07-09 22:19:45,178 - root - INFO - [ShellTool] Executing command: dir
+2025-07-09 22:19:45,212 - root - INFO - [ShellTool] Command succeeded: dir
+2025-07-09 22:19:45,212 - root - DEBUG - [ShellTool] Output: Volume in drive D is New Volume
+ Volume Serial Number is 6EBA-1900
+
+ Directory of D:\inncircles\workspace
+
+09-07-2025  21:55    <DIR>          .
+09-07-2025  21:54    <DIR>          ..
+09-07-2025  16:00    <DIR>          Form
+09-07-2025  21:46    <DIR>          images
+               0 File(s)              0 bytes
+               4 Dir(s)  461,981,470,720 bytes free
+2025-07-09 22:19:45,231 - root - INFO - [ShellTool] Executing command: foobarbaz123
+2025-07-09 22:19:45,277 - root - WARNING - [ShellTool] Command failed: foobarbaz123 | Exit code: 1
+2025-07-09 22:19:45,278 - root - DEBUG - [ShellTool] Stderr: 'foobarbaz123' is not recognized as an internal or external command,
+operable program or batch file.

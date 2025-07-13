@@ -1,0 +1,57 @@
+2025-07-10 13:05:26,660 - root - INFO - [FilesTool] Initialized with base path: workspace/Form
+2025-07-10 13:05:26,660 - root - DEBUG - [FilesTool] Found 2 files in workspace/Form
+2025-07-10 13:05:26,660 - root - INFO - [FilesTool] Processing file: workspace/Form\.DS_Store
+2025-07-10 13:05:26,661 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-10 13:05:26,661 - root - INFO - [FilesTool] Processing file: workspace/Form\Pre Qual Form.pdf
+2025-07-10 13:05:27,102 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:27,102 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:27,102 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-10 13:05:27,269 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_svps7j8__input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_svps7j8_', 'txt']
+2025-07-10 13:05:29,327 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:29,327 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:29,328 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-10 13:05:29,579 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gp2lqltw_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gp2lqltw', 'txt']
+2025-07-10 13:05:32,864 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:32,864 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:32,864 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-10 13:05:33,077 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_c8_duvze_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_c8_duvze', 'txt']
+2025-07-10 13:05:36,891 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:36,891 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:36,891 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-10 13:05:37,239 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8rmyk3wh_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8rmyk3wh', 'txt']
+2025-07-10 13:05:40,970 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:40,970 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:40,971 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-10 13:05:41,187 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3ajapoiu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3ajapoiu', 'txt']
+2025-07-10 13:05:43,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:43,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 13:05:43,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-10 13:05:43,399 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_twyhi0___input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_twyhi0__', 'txt']
+2025-07-10 13:05:45,843 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Form\Pre Qual Form.pdf
+2025-07-10 13:05:45,919 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Form
+2025-07-10 13:05:46,004 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s
+2025-07-10 13:05:46,008 - root - INFO - [ShellTool] Executing command: echo Hello Agent
+2025-07-10 13:05:46,082 - root - INFO - [ShellTool] Command succeeded: echo Hello Agent
+2025-07-10 13:05:46,083 - root - DEBUG - [ShellTool] Output: Hello Agent
+2025-07-10 13:05:46,085 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-10 13:05:46,085 - root - INFO - [WebSearch] Processing query: OpenAI
+2025-07-10 13:05:46,088 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-10 13:05:52,229 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=OpenAI&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-10 13:05:52,431 - root - INFO - [WebSearch] Checking 1 links
+2025-07-10 13:05:52,433 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): openai.com:443
+2025-07-10 13:05:54,192 - urllib3.connectionpool - DEBUG - https://openai.com:443 "GET / HTTP/1.1" 403 None
+2025-07-10 13:05:54,254 - root - DEBUG - [WebSearch] Non-200 status for https://openai.com/: 403
+2025-07-10 13:05:54,254 - root - INFO - [WebSearch] Query completed with 0 results
+2025-07-10 13:05:54,256 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-10 13:05:54,257 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-10 13:05:54,528 - root - INFO - [ComputerUseTool] Screenshot saved at workspace/images\screenshot.png
+2025-07-10 13:05:54,533 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-10 13:05:54,533 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-10 13:05:54,752 - root - INFO - [ComputerUseTool] Screenshot saved at workspace/images\screenshot.png
+2025-07-10 13:05:54,759 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-10 13:05:54,760 - root - INFO - [VisionTool] Starting OCR analysis...
+2025-07-10 13:05:54,761 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 13:05:54,761 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 65536
+2025-07-10 13:05:54,792 - root - DEBUG - [VisionTool] Image decoded successfully.
+2025-07-10 13:05:54,873 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_j5eh1p3c_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_j5eh1p3c', 'txt']
+2025-07-10 13:05:58,281 - root - INFO - [VisionTool] OCR completed.

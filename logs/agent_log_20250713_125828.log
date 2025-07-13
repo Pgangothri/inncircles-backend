@@ -1,0 +1,56 @@
+2025-07-13 12:58:49,443 - root - INFO - [Planner] Planning task subtasks...
+2025-07-13 12:58:49,443 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-13 12:58:49,444 - root - INFO - [MemoryManager] Using existing memory file at workspace/memory.json
+2025-07-13 12:58:49,444 - root - INFO - [MemoryManager] Retrieving relevant memories for query: Take Screenshot and analyze
+2025-07-13 12:58:49,467 - root - INFO - [MemoryManager] Loaded memory history
+2025-07-13 12:58:49,467 - root - INFO - [MemoryManager] Retrieved 3 relevant memories
+2025-07-13 12:58:49,503 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-041283e4-c908-4ad8-9cba-add95c4d7102', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent:  Read and extract information from Knowledge Base documents. \n- ReadAgent: Just read file content.\n- QuestionAgent: Extract questions using OCR/LLM from PDFs or DOCX files.\n- RetrievalAgent: Answer questions using document context (RAG).\n- ShellAgent: Execute shell commands (e.g., terminal).\n- VisionAgent: Analyze screenshots/images using OCR.\n- CodeAgent: Run code snippets in Python.\n- ComputerAgent: Interact with the desktop (e.g., take screenshots).\n\nRULES:\n- Use ONLY the exact agent names listed above (case-sensitive).\n- DO NOT invent new agents.\n- Return your response in the following JSON format:\n\n{\n  "objective": "...",\n  "subtasks": [\n    { "description": "...", "assigned_agent": "..." },\n    ...\n  ]\n}\n\n\n[Context from memory:]\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take screenshot and analyze\nPlan: {\'goal\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'step\': 1, \'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'computer_agent\'}, {\'step\': 2, \'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'vision_agent\'}]}\nAnswers: []\n', 'role': 'system'}, {'content': 'Take Screenshot and analyze', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-13 12:58:49,556 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-13 12:58:49,556 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-13 12:58:50,156 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022CA9FB1F90>
+2025-07-13 12:58:50,157 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022CAA070320> server_hostname='api.openai.com' timeout=None
+2025-07-13 12:58:50,286 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022CAB70A410>
+2025-07-13 12:58:50,286 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-13 12:58:50,287 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-13 12:58:50,287 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-13 12:58:50,287 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-13 12:58:50,318 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-13 12:58:51,994 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 13 Jul 2025 07:28:54 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'952'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'957'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999507'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_5d35707b511dbb435b96533c82f25862'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=efOZi0slsaLBLuao_sjr9iPCo67PSM53lwcTP227PD8-1752391734-1.0.1.1-pEQ0bmXOTmYGCe3.4KSrNL7Dmv92v2Pdd1kaNSAY7qscu1eI0kh9ycpGc0Iw4CrIgGnn6HPX5U2ty9pVYzFEY0mRP6pbTNLtj9TamAsRqeA; path=/; expires=Sun, 13-Jul-25 07:58:54 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=1bv0deMgqyhgv11FTMg872OeyASmwRV8WaL3bogYWCk-1752391734084-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95e710e8dbe49373-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-13 12:58:51,996 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-13 12:58:51,997 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-13 12:58:51,999 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-13 12:58:51,999 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-13 12:58:51,999 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-13 12:58:51,999 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sun, 13 Jul 2025 07:28:54 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '952'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '957'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999507'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_5d35707b511dbb435b96533c82f25862'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=efOZi0slsaLBLuao_sjr9iPCo67PSM53lwcTP227PD8-1752391734-1.0.1.1-pEQ0bmXOTmYGCe3.4KSrNL7Dmv92v2Pdd1kaNSAY7qscu1eI0kh9ycpGc0Iw4CrIgGnn6HPX5U2ty9pVYzFEY0mRP6pbTNLtj9TamAsRqeA; path=/; expires=Sun, 13-Jul-25 07:58:54 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=1bv0deMgqyhgv11FTMg872OeyASmwRV8WaL3bogYWCk-1752391734084-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95e710e8dbe49373-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-13 12:58:51,999 - openai._base_client - DEBUG - request_id: req_5d35707b511dbb435b96533c82f25862
+2025-07-13 12:58:52,014 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Take a screenshot and analyze it.",
+  "subtasks": [
+    { "description": "Take a screenshot of the current desktop.", "assigned_agent": "ComputerAgent" },
+    { "description": "Analyze the screenshot using OCR to extract text.", "assigned_agent": "VisionAgent" }
+  ]
+}
+2025-07-13 12:58:52,016 - root - ERROR - [PlanningAgent] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 97, in planning_agent
+    raise ValueError(f"Invalid agent: {step['assigned_agent']}")
+ValueError: Invalid agent: ComputerAgent
+2025-07-13 12:58:52,053 - root - ERROR - [Planner] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 97, in planning_agent
+    raise ValueError(f"Invalid agent: {step['assigned_agent']}")
+ValueError: Invalid agent: ComputerAgent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 163, in planner
+    plan = planning_agent(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\src\agent\planning_agent.py", line 107, in planning_agent
+    raise RuntimeError(f"Planning failed: {e}")
+RuntimeError: Planning failed: Invalid agent: ComputerAgent
+2025-07-13 12:58:52,055 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-13 12:58:52,581 - httpcore.connection - DEBUG - close.started
+2025-07-13 12:58:52,582 - httpcore.connection - DEBUG - close.complete

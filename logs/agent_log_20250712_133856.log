@@ -1,0 +1,110 @@
+2025-07-12 13:39:02,587 - root - INFO - [Planner] Planning task subtasks...
+2025-07-12 13:39:02,588 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-12 13:39:02,591 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-d5e8ab3c-ccb6-4e96-a613-bef7da7c92d9', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent: Read and extract information from Knowledge Base documents.\n- QuestionAgent: Extract questions using OCR/LLM\n- RetrievalAgent: Answer questions using document context (RAG)\n- ShellAgent: Execute system shell commands\n- VisionAgent: Analyze screenshots/images\n- CodeAgent: Run code in a sandbox\n- ComputerAgent: Interact with the desktop (e.g., take screenshots)\n\nRULES:\n- Use only the exact agent names listed above (case-sensitive).\n- Do NOT invent new agents.\n- Do NOT change spelling.\n- Only include agents needed for the prompt.\n- Return subtasks in valid JSON format like:\n\n{\n  "objective": "...",\n  "subtasks": [\n    {"description": "...", "assigned_agent": "DocumentAgent"},\n    {"description": "...", "assigned_agent": "RetrievalAgent"}\n  ]\n}\n', 'role': 'system'}, {'content': 'Take Screenshot and analyze', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-12 13:39:02,629 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-12 13:39:02,630 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-12 13:39:03,496 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001CD335F7210>
+2025-07-12 13:39:03,496 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001CD32EFDAC0> server_hostname='api.openai.com' timeout=None
+2025-07-12 13:39:04,043 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001CD335F5450>
+2025-07-12 13:39:04,044 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-12 13:39:04,044 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-12 13:39:04,045 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-12 13:39:04,045 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-12 13:39:04,045 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-12 13:39:05,957 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 12 Jul 2025 08:09:06 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1066'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1072'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999759'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_5927202388e980b0b1732d9e6df0cd8e'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=NCUkgJxvVn69KAKrT83wnXj7crU_ntr1xL1C0ceHqLU-1752307746-1.0.1.1-TOZlQJmC68pyPyVyfMfr2ATua97eWSM3WDrNR0t0iZun1GSzq9_7pZd1gMx1UVD5sV9.ATbSfIcQZBW8ErFeThtBMGFFYCMAbXSdZyuUHEM; path=/; expires=Sat, 12-Jul-25 08:39:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=behRhGVQaQtYVPkO0ZEGl1jOPutUaYdQa6LOuz0w2q8-1752307746560-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95df0e6ddf317f73-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-12 13:39:05,958 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 13:39:05,958 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-12 13:39:05,959 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-12 13:39:05,959 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-12 13:39:05,959 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-12 13:39:05,959 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 12 Jul 2025 08:09:06 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1066'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1072'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999759'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_5927202388e980b0b1732d9e6df0cd8e'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=NCUkgJxvVn69KAKrT83wnXj7crU_ntr1xL1C0ceHqLU-1752307746-1.0.1.1-TOZlQJmC68pyPyVyfMfr2ATua97eWSM3WDrNR0t0iZun1GSzq9_7pZd1gMx1UVD5sV9.ATbSfIcQZBW8ErFeThtBMGFFYCMAbXSdZyuUHEM; path=/; expires=Sat, 12-Jul-25 08:39:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=behRhGVQaQtYVPkO0ZEGl1jOPutUaYdQa6LOuz0w2q8-1752307746560-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95df0e6ddf317f73-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-12 13:39:05,959 - openai._base_client - DEBUG - request_id: req_5927202388e980b0b1732d9e6df0cd8e
+2025-07-12 13:39:05,967 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Take a screenshot and analyze it",
+  "subtasks": [
+    {"description": "Take a screenshot of the current desktop", "assigned_agent": "ComputerAgent"},
+    {"description": "Analyze the screenshot for relevant information", "assigned_agent": "VisionAgent"}
+  ]
+}
+2025-07-12 13:39:05,968 - root - INFO - [PlanningAgent] Final Plan:
+{
+  "objective": "Take a screenshot and analyze it",
+  "subtasks": [
+    {
+      "description": "Take a screenshot of the current desktop",
+      "assigned_agent": "ComputerAgent"
+    },
+    {
+      "description": "Analyze the screenshot for relevant information",
+      "assigned_agent": "VisionAgent"
+    }
+  ]
+}
+2025-07-12 13:39:05,972 - root - INFO - [Orchestrator] Executing step 1/2: AgentEnum.ComputerAgent
+2025-07-12 13:39:05,973 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-12 13:39:05,973 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-12 13:39:06,216 - root - INFO - [ComputerUseTool] Screenshot saved at workspace/images\screenshot.png
+2025-07-12 13:39:06,219 - root - INFO - [Orchestrator] Executing step 2/2: AgentEnum.VisionAgent
+2025-07-12 13:39:06,220 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-12 13:39:06,220 - root - INFO - [VisionTool] Starting OCR analysis...
+2025-07-12 13:39:06,221 - PIL.Image - DEBUG - Importing AvifImagePlugin
+2025-07-12 13:39:06,223 - PIL.Image - DEBUG - Importing BlpImagePlugin
+2025-07-12 13:39:06,225 - PIL.Image - DEBUG - Importing BmpImagePlugin
+2025-07-12 13:39:06,225 - PIL.Image - DEBUG - Importing BufrStubImagePlugin
+2025-07-12 13:39:06,226 - PIL.Image - DEBUG - Importing CurImagePlugin
+2025-07-12 13:39:06,226 - PIL.Image - DEBUG - Importing DcxImagePlugin
+2025-07-12 13:39:06,228 - PIL.Image - DEBUG - Importing DdsImagePlugin
+2025-07-12 13:39:06,231 - PIL.Image - DEBUG - Importing EpsImagePlugin
+2025-07-12 13:39:06,233 - PIL.Image - DEBUG - Importing FitsImagePlugin
+2025-07-12 13:39:06,235 - PIL.Image - DEBUG - Importing FliImagePlugin
+2025-07-12 13:39:06,237 - PIL.Image - DEBUG - Importing FpxImagePlugin
+2025-07-12 13:39:06,240 - PIL.Image - DEBUG - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-07-12 13:39:06,240 - PIL.Image - DEBUG - Importing FtexImagePlugin
+2025-07-12 13:39:06,241 - PIL.Image - DEBUG - Importing GbrImagePlugin
+2025-07-12 13:39:06,242 - PIL.Image - DEBUG - Importing GifImagePlugin
+2025-07-12 13:39:06,242 - PIL.Image - DEBUG - Importing GribStubImagePlugin
+2025-07-12 13:39:06,244 - PIL.Image - DEBUG - Importing Hdf5StubImagePlugin
+2025-07-12 13:39:06,245 - PIL.Image - DEBUG - Importing IcnsImagePlugin
+2025-07-12 13:39:06,248 - PIL.Image - DEBUG - Importing IcoImagePlugin
+2025-07-12 13:39:06,250 - PIL.Image - DEBUG - Importing ImImagePlugin
+2025-07-12 13:39:06,251 - PIL.Image - DEBUG - Importing ImtImagePlugin
+2025-07-12 13:39:06,252 - PIL.Image - DEBUG - Importing IptcImagePlugin
+2025-07-12 13:39:06,255 - PIL.Image - DEBUG - Importing JpegImagePlugin
+2025-07-12 13:39:06,255 - PIL.Image - DEBUG - Importing Jpeg2KImagePlugin
+2025-07-12 13:39:06,255 - PIL.Image - DEBUG - Importing McIdasImagePlugin
+2025-07-12 13:39:06,256 - PIL.Image - DEBUG - Importing MicImagePlugin
+2025-07-12 13:39:06,258 - PIL.Image - DEBUG - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-07-12 13:39:06,258 - PIL.Image - DEBUG - Importing MpegImagePlugin
+2025-07-12 13:39:06,259 - PIL.Image - DEBUG - Importing MpoImagePlugin
+2025-07-12 13:39:06,263 - PIL.Image - DEBUG - Importing MspImagePlugin
+2025-07-12 13:39:06,264 - PIL.Image - DEBUG - Importing PalmImagePlugin
+2025-07-12 13:39:06,266 - PIL.Image - DEBUG - Importing PcdImagePlugin
+2025-07-12 13:39:06,267 - PIL.Image - DEBUG - Importing PcxImagePlugin
+2025-07-12 13:39:06,267 - PIL.Image - DEBUG - Importing PdfImagePlugin
+2025-07-12 13:39:06,281 - PIL.Image - DEBUG - Importing PixarImagePlugin
+2025-07-12 13:39:06,283 - PIL.Image - DEBUG - Importing PngImagePlugin
+2025-07-12 13:39:06,283 - PIL.Image - DEBUG - Importing PpmImagePlugin
+2025-07-12 13:39:06,283 - PIL.Image - DEBUG - Importing PsdImagePlugin
+2025-07-12 13:39:06,285 - PIL.Image - DEBUG - Importing QoiImagePlugin
+2025-07-12 13:39:06,286 - PIL.Image - DEBUG - Importing SgiImagePlugin
+2025-07-12 13:39:06,287 - PIL.Image - DEBUG - Importing SpiderImagePlugin
+2025-07-12 13:39:06,288 - PIL.Image - DEBUG - Importing SunImagePlugin
+2025-07-12 13:39:06,289 - PIL.Image - DEBUG - Importing TgaImagePlugin
+2025-07-12 13:39:06,289 - PIL.Image - DEBUG - Importing TiffImagePlugin
+2025-07-12 13:39:06,290 - PIL.Image - DEBUG - Importing WebPImagePlugin
+2025-07-12 13:39:06,292 - PIL.Image - DEBUG - Importing WmfImagePlugin
+2025-07-12 13:39:06,293 - PIL.Image - DEBUG - Importing XbmImagePlugin
+2025-07-12 13:39:06,295 - PIL.Image - DEBUG - Importing XpmImagePlugin
+2025-07-12 13:39:06,296 - PIL.Image - DEBUG - Importing XVThumbImagePlugin
+2025-07-12 13:39:06,297 - root - ERROR - [VisionTool] OCR failed: cannot identify image file <_io.BytesIO object at 0x000001CD3364CF90>
+Traceback (most recent call last):
+  File "D:\inncircles\src\tools\vision_tool.py", line 36, in analyze_base64_image
+    image = Image.open(io.BytesIO(image_data)).convert("RGB")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\PIL\Image.py", line 3580, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000001CD3364CF90>
+2025-07-12 13:39:06,301 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-12 13:39:06,683 - httpcore.connection - DEBUG - close.started
+2025-07-12 13:39:06,684 - httpcore.connection - DEBUG - close.complete

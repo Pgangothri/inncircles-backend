@@ -1,0 +1,65 @@
+2025-07-10 22:26:28,321 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-10 22:26:28,322 - root - DEBUG - [FilesTool] Found 2 files in workspace/Form
+2025-07-10 22:26:28,322 - root - INFO - [FilesTool] Processing file: workspace/Form\.DS_Store
+2025-07-10 22:26:28,323 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-10 22:26:28,323 - root - INFO - [FilesTool] Processing file: workspace/Form\Pre Qual Form.pdf
+2025-07-10 22:26:28,780 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:28,780 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:28,780 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-10 22:26:28,928 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5kbm4ipg_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5kbm4ipg', 'txt']
+2025-07-10 22:26:30,499 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:30,500 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:30,500 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-10 22:26:30,676 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gswjol91_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gswjol91', 'txt']
+2025-07-10 22:26:32,675 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:32,675 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:32,675 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-10 22:26:32,832 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b_d3a8qh_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b_d3a8qh', 'txt']
+2025-07-10 22:26:34,563 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:34,563 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:34,563 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-10 22:26:34,694 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ddhkp818_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ddhkp818', 'txt']
+2025-07-10 22:26:36,017 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:36,018 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:36,018 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-10 22:26:36,132 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_grvx8v2d_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_grvx8v2d', 'txt']
+2025-07-10 22:26:37,241 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:37,241 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:37,241 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-10 22:26:37,361 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pm1j66sw_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pm1j66sw', 'txt']
+2025-07-10 22:26:38,128 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Form\Pre Qual Form.pdf
+2025-07-10 22:26:38,134 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Form
+2025-07-10 22:26:38,134 - root - INFO - [FilesTool] Extracted 1 questions from form
+2025-07-10 22:26:38,134 - root - INFO - [FilesTool] Extracted 66 questions from form
+2025-07-10 22:26:38,135 - root - DEBUG - [FilesTool] Found 9 files in workspace/Knowledge Base
+2025-07-10 22:26:38,135 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Insurance Policies.docx
+2025-07-10 22:26:38,269 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Insurance Policies.docx
+2025-07-10 22:26:38,270 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-10 22:26:38,505 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:26:38,505 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:26:38,505 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 496173
+2025-07-10 22:26:38,675 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mp6yv4pu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mp6yv4pu', 'txt']
+2025-07-10 22:26:39,828 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-10 22:26:39,832 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Deminimus.docx
+2025-07-10 22:26:39,856 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\OSHA Deminimus.docx
+2025-07-10 22:26:39,856 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-10 22:26:39,880 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-10 22:26:39,880 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2021.docx
+2025-07-10 22:26:39,935 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2021.docx
+2025-07-10 22:26:39,935 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2022.docx
+2025-07-10 22:26:39,977 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2022.docx
+2025-07-10 22:26:39,977 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2023.docx
+2025-07-10 22:26:40,000 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2023.docx
+2025-07-10 22:26:40,000 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-10 22:26:40,077 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-10 22:26:40,077 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-10 22:26:40,099 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-10 22:26:40,100 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Knowledge Base
+2025-07-10 22:26:40,100 - root - INFO - [FilesTool] Extracted OCR content from 9 knowledge documents
+2025-07-10 22:26:41,512 - faiss.loader - DEBUG - Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2025-07-10 22:26:41,554 - faiss.loader - INFO - Loading faiss with AVX512 support.
+2025-07-10 22:26:41,555 - faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+2025-07-10 22:26:41,555 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-07-10 22:26:41,981 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-07-10 22:26:42,001 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.

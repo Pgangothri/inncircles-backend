@@ -1,0 +1,4 @@
+2025-07-10 13:18:29,511 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): app.daytona.io:443
+2025-07-10 13:18:31,829 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "POST /api/sandbox HTTP/1.1" 200 498
+2025-07-10 13:18:32,270 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "GET /api/toolbox/c80a5646-42ca-4f3f-afdb-def09dd7f96b/toolbox/project-dir HTTP/1.1" 200 23
+2025-07-10 13:18:32,646 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "POST /api/toolbox/c80a5646-42ca-4f3f-afdb-def09dd7f96b/toolbox/process/execute HTTP/1.1" 200 61

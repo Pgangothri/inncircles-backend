@@ -1,0 +1,15 @@
+2025-07-09 22:16:45,996 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-09 22:16:45,996 - root - INFO - [WebSearch] Running test query from __main__
+2025-07-09 22:16:45,997 - root - INFO - [WebSearch] Processing query: what is sandboxing?
+2025-07-09 22:16:46,003 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-09 22:16:47,486 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=what+is+sandboxing%3F&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-09 22:16:47,488 - root - INFO - [WebSearch] Checking 4 links
+2025-07-09 22:16:47,490 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.fortinet.com:443
+2025-07-09 22:16:49,344 - urllib3.connectionpool - DEBUG - https://www.fortinet.com:443 "GET /resources/cyberglossary/what-is-sandboxing HTTP/1.1" 200 92859
+2025-07-09 22:16:49,758 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): en.wikipedia.org:443
+2025-07-09 22:16:50,139 - urllib3.connectionpool - DEBUG - https://en.wikipedia.org:443 "GET /wiki/Sandbox_(computer_security) HTTP/1.1" 200 21344
+2025-07-09 22:16:50,238 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.techtarget.com:443
+2025-07-09 22:16:50,698 - urllib3.connectionpool - DEBUG - https://www.techtarget.com:443 "GET /searchsecurity/definition/sandbox HTTP/1.1" 200 None
+2025-07-09 22:16:50,747 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.proofpoint.com:443
+2025-07-09 22:16:51,300 - urllib3.connectionpool - DEBUG - https://www.proofpoint.com:443 "GET /us/threat-reference/sandbox HTTP/1.1" 200 42471
+2025-07-09 22:16:51,386 - root - INFO - [WebSearch] Query completed with 4 results

@@ -1,0 +1,21 @@
+agent:
+  framework: langgraph
+  output_format: xml
+  planning_strategy: chain_of_thought
+  tool_selection_strategy: relevance_scoring
+  memory: false
+  error_handling: retry_and_log
+  max_steps: 5
+
+llm:
+  provider: openai
+  model: gpt-4o
+  api_key_env: OPENAI_API_KEY
+  temperature: 0.3
+  max_tokens: 2048
+
+execution:
+  stream_output: true
+  language: en
+  log_level: info
+  enable_retry: true

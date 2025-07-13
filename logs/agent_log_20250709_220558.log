@@ -1,0 +1,18 @@
+2025-07-09 22:06:03,485 - root - INFO - [CodeInterpreterTool] Daytona client initialized.
+2025-07-09 22:06:03,490 - root - INFO - [CodeInterpreterTool] Executing code in Daytona sandbox...
+2025-07-09 22:06:03,491 - root - DEBUG - [CodeInterpreterTool] Creating sandbox for: python
+2025-07-09 22:06:03,496 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): app.daytona.io:443
+2025-07-09 22:06:05,061 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "POST /api/sandbox HTTP/1.1" 401 130
+2025-07-09 22:06:05,061 - root - ERROR - [CodeInterpreterTool] Execution failed: Failed to create sandbox: Invalid API key
+Traceback (most recent call last):
+  File "D:\inncircles\src\tools\code_interpreter.py", line 69, in execute_code
+    sandbox = self.create_sandbox()
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\src\tools\code_interpreter.py", line 44, in create_sandbox
+    return self.daytona.create(params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\daytona\_utils\errors.py", line 55, in sync_wrapper
+    process_n_raise_exception(e)
+  File "D:\inncircles\venv\Lib\site-packages\daytona\_utils\errors.py", line 32, in process_n_raise_exception
+    raise DaytonaError(f"{message_prefix}{msg}") from None
+daytona.common.errors.DaytonaError: Failed to create sandbox: Invalid API key

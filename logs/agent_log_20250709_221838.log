@@ -1,0 +1,11 @@
+2025-07-09 22:18:38,490 - root - INFO - [VisionTool] Running standalone OCR test via screenshot...
+2025-07-09 22:18:38,490 - root - INFO - [ComputerUseTool] Initialized.
+2025-07-09 22:18:38,490 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-09 22:18:38,651 - root - INFO - [ComputerUseTool] Screenshot captured successfully.
+2025-07-09 22:18:38,656 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-09 22:18:38,657 - root - INFO - [VisionTool] Starting OCR analysis...
+2025-07-09 22:18:38,658 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-09 22:18:38,658 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 65536
+2025-07-09 22:18:38,679 - root - DEBUG - [VisionTool] Image decoded successfully.
+2025-07-09 22:18:38,758 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ck8x50fe_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ck8x50fe', 'txt']
+2025-07-09 22:18:40,824 - root - INFO - [VisionTool] OCR completed.

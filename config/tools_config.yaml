@@ -1,0 +1,50 @@
+# tools_config.yaml
+
+tools:
+  reasoning_engine:
+    model: gpt-4o
+    temperature: 0.3
+
+  computer_use:
+    enabled: true
+    type: sdk
+    provider: daytona
+    base_path: workspace
+    api_key: ${DAYTONA_API_KEY}
+    api_url: ${DAYTONA_API_URL}
+
+  code_interpreter:
+    enabled: true
+    api_key: ${DAYTONA_API_KEY}
+    type: sandbox
+    language: python
+    execution_engine: daytona
+    timeout_seconds: 60
+
+  web_search:
+    enabled: true
+    type: api
+    provider: serpapi
+    api_key: ${SERPAPI_KEY}
+    max_results: 5
+
+  vision_tool:
+    enabled: true
+    type: sdk
+    provider: daytona
+    default_folder: workspace/images
+    output_format: base64
+
+  files_tool:
+    enabled: true
+    type: sdk
+    provider: daytona
+    allowed_extensions: [".txt", ".md", ".json", ".pdf"]
+    root_dir: workspace
+
+  shell_tool:
+    enabled: true
+    type: sdk
+    provider: daytona
+    default_workdir: workspace
+    timeout_seconds: 20

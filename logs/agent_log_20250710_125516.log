@@ -1,0 +1,31 @@
+2025-07-10 12:55:29,069 - root - INFO - [FilesTool] Initialized with base path: workspace/Form
+2025-07-10 12:55:29,070 - root - DEBUG - [FilesTool] Found 2 files in workspace/Form
+2025-07-10 12:55:29,070 - root - INFO - [FilesTool] Processing file: workspace/Form\.DS_Store
+2025-07-10 12:55:29,070 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-10 12:55:29,070 - root - INFO - [FilesTool] Processing file: workspace/Form\Pre Qual Form.pdf
+2025-07-10 12:55:29,988 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:29,989 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:29,989 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-10 12:55:30,244 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fdyuc9e0_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fdyuc9e0', 'txt']
+2025-07-10 12:55:32,183 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:32,183 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:32,183 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-10 12:55:32,478 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xp4aj2zq_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xp4aj2zq', 'txt']
+2025-07-10 12:55:35,873 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:35,873 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:35,873 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-10 12:55:36,067 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ak7hj_5x_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ak7hj_5x', 'txt']
+2025-07-10 12:55:38,044 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:38,044 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:38,044 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-10 12:55:38,177 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_emeaj04u_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_emeaj04u', 'txt']
+2025-07-10 12:55:39,630 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:39,630 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:39,630 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-10 12:55:39,743 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yq1oczrw_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yq1oczrw', 'txt']
+2025-07-10 12:55:40,944 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 12:55:40,944 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 12:55:40,944 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-10 12:55:41,075 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uppldarw_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uppldarw', 'txt']
+2025-07-10 12:55:41,885 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Form\Pre Qual Form.pdf
+2025-07-10 12:55:41,895 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Form

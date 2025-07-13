@@ -1,0 +1,5 @@
+2025-07-11 17:13:56,525 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-11 17:13:56,526 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-11 17:13:56,526 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-11 17:13:56,533 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-11 17:13:56,540 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s

@@ -1,0 +1,54 @@
+2025-07-12 13:31:25,801 - root - INFO - [Planner] Planning task subtasks...
+2025-07-12 13:31:25,801 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-12 13:31:25,804 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-211b8a26-b0f7-4600-b9e5-fa9d7e901c22', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent: Read and extract information from Knowledge Base documents.\n- QuestionAgent: Extract questions using OCR/LLM\n- RetrievalAgent: Answer questions using document context (RAG)\n- ShellAgent: Execute system shell commands\n- VisionAgent: Analyze screenshots/images\n- CodeAgent: Run code in a sandbox\n- ComputerAgent: Interact with the desktop (e.g., take screenshots)\n\nRULES:\n- Use only the exact agent names listed above (case-sensitive).\n- Do NOT invent new agents.\n- Do NOT change spelling.\n- Only include agents needed for the prompt.\n- Return subtasks in valid JSON format like:\n\n{\n  "objective": "...",\n  "subtasks": [\n    {"description": "...", "assigned_agent": "DocumentAgent"},\n    {"description": "...", "assigned_agent": "RetrievalAgent"}\n  ]\n}\n', 'role': 'system'}, {'content': 'Take Screenshot and analyze', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-12 13:31:25,820 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-12 13:31:25,820 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-12 13:31:26,361 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024FF0CCD550>
+2025-07-12 13:31:26,362 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000024FF07FDA30> server_hostname='api.openai.com' timeout=None
+2025-07-12 13:31:26,683 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024FF0F1F5D0>
+2025-07-12 13:31:26,683 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-12 13:31:26,685 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-12 13:31:26,685 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-12 13:31:26,686 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-12 13:31:26,686 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-12 13:31:28,624 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 12 Jul 2025 08:01:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'993'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'995'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999759'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_2809ba8375664e01b6bbef023d06d230'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=LPedOSI37Nq.ke9myqImKJCjaHPcrwmJCpUtotOfBpM-1752307289-1.0.1.1-RxQXbGjHYx1ORdWO4iLoW7QvGQbHM3PgiUA0NN1lwpqVJFgIxSSUndPBxU_7XMXCvNYwvJnptyykZzYZtTYIspZAQr3BBArlOjtAnK2XMxg; path=/; expires=Sat, 12-Jul-25 08:31:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=kpNS3bvY5KYOgqXCgmm1TV938BX2malOvoPn6ndURr4-1752307289296-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95df034389459367-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-12 13:31:28,626 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 13:31:28,627 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-12 13:31:28,628 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-12 13:31:28,628 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-12 13:31:28,628 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-12 13:31:28,628 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 12 Jul 2025 08:01:29 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '993'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '995'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999759'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_2809ba8375664e01b6bbef023d06d230'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=LPedOSI37Nq.ke9myqImKJCjaHPcrwmJCpUtotOfBpM-1752307289-1.0.1.1-RxQXbGjHYx1ORdWO4iLoW7QvGQbHM3PgiUA0NN1lwpqVJFgIxSSUndPBxU_7XMXCvNYwvJnptyykZzYZtTYIspZAQr3BBArlOjtAnK2XMxg; path=/; expires=Sat, 12-Jul-25 08:31:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=kpNS3bvY5KYOgqXCgmm1TV938BX2malOvoPn6ndURr4-1752307289296-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95df034389459367-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-12 13:31:28,629 - openai._base_client - DEBUG - request_id: req_2809ba8375664e01b6bbef023d06d230
+2025-07-12 13:31:28,644 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Take a screenshot and analyze it",
+  "subtasks": [
+    {"description": "Take a screenshot of the current desktop", "assigned_agent": "ComputerAgent"},
+    {"description": "Analyze the screenshot for relevant information", "assigned_agent": "VisionAgent"}
+  ]
+}
+2025-07-12 13:31:28,645 - root - INFO - [PlanningAgent] Final Plan:
+{
+  "objective": "Take a screenshot and analyze it",
+  "subtasks": [
+    {
+      "description": "Analyze the screenshot for relevant information",
+      "assigned_agent": "VisionAgent"
+    },
+    {
+      "description": "Take a screenshot of the current desktop",
+      "assigned_agent": "ComputerAgent"
+    }
+  ]
+}
+2025-07-12 13:31:28,647 - root - INFO - [Orchestrator] Executing step 1/2: AgentEnum.VisionAgent
+2025-07-12 13:31:28,648 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-12 13:31:28,648 - root - ERROR - [Orchestrator] Step failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 77, in orchestrate_step
+    vision_output = VisionTool().analyze_base64_image()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: VisionTool.analyze_base64_image() missing 1 required positional argument: 'image_base64'
+2025-07-12 13:31:28,649 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-12 13:31:29,058 - httpcore.connection - DEBUG - close.started
+2025-07-12 13:31:29,059 - httpcore.connection - DEBUG - close.complete

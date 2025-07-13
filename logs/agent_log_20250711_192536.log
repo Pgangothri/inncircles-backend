@@ -1,0 +1,231 @@
+2025-07-11 19:25:46,950 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-11 19:25:46,953 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s
+2025-07-11 19:25:46,953 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-11 19:25:46,957 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-11 19:25:46,957 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-11 19:25:48,255 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-c03ecab0-5c61-4520-9858-283db447b8c1', 'json_data': {'messages': [{'content': '\nYou are a task planning agent that decides which tool to use next based on a user request and prior steps.\n\nAvailable tools and descriptions:\n- run_form_qa: Extracts questions from a contractor pre-qualification form and answers them using a knowledge base of company documents (PDFs, manuals, policies, etc.)\n- read_documents: Reads documents from the knowledge base for indexing and retrieval\n- screenshot_and_analyze: Takes a screenshot and performs OCR or visual analysis\n- web_search: Searches the internet for current information\n- run_code: Runs Python code for calculations or processing\n- run_shell_command: Executes system commands in a shell\n- use_computer: Interacts with desktop UI, like taking screenshots\n\nRespond in JSON format:\n{\n  "next_action": "tool_name",\n  "reasoning": "brief explanation of why the tool was chosen",\n  "confidence": 0.0–1.0\n}\n', 'role': 'system'}, {'content': '\nUser request: Search for the latest RBI guidelines on digital lending and summarize them.\nCompleted steps: []\nErrors so far: []\n\nWhat tool should be used next?\n', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.3}}
+2025-07-11 19:25:48,269 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-11 19:25:48,270 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-11 19:25:49,340 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CCB250>
+2025-07-11 19:25:49,340 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020AA6807920> server_hostname='api.openai.com' timeout=None
+2025-07-11 19:25:49,389 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CCB390>
+2025-07-11 19:25:49,389 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-11 19:25:49,389 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-11 19:25:49,390 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-11 19:25:49,390 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-11 19:25:49,390 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-11 19:25:51,200 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 11 Jul 2025 13:55:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1457'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1461'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999739'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_bc17efe4fc106983467038a9100e6aac'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=_OSakqkQ7Z0j929H.2Qu1gu7pGllXpZCetiBgtdVse8-1752242150-1.0.1.1-PS7kH.zsDULawiR9tGq293gKDsq6zowTbD_D9Zg7PtCBemJ0kVAeuu2vMKAixdfQmhSl8bGUBHVASxWPl2iSIJR6u5qnO_zT0AGXYRNXaN4; path=/; expires=Fri, 11-Jul-25 14:25:50 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=KJKEOgdIEiz8vlmB9b0VP9hQSaVxWuO7_sl77fa4qyY-1752242150494-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d8ccf59ec79a8d-NAG'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-11 19:25:51,201 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 19:25:51,201 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-11 19:25:51,202 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-11 19:25:51,202 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-11 19:25:51,203 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-11 19:25:51,203 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Fri, 11 Jul 2025 13:55:50 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1457'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1461'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999739'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_bc17efe4fc106983467038a9100e6aac'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=_OSakqkQ7Z0j929H.2Qu1gu7pGllXpZCetiBgtdVse8-1752242150-1.0.1.1-PS7kH.zsDULawiR9tGq293gKDsq6zowTbD_D9Zg7PtCBemJ0kVAeuu2vMKAixdfQmhSl8bGUBHVASxWPl2iSIJR6u5qnO_zT0AGXYRNXaN4; path=/; expires=Fri, 11-Jul-25 14:25:50 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=KJKEOgdIEiz8vlmB9b0VP9hQSaVxWuO7_sl77fa4qyY-1752242150494-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95d8ccf59ec79a8d-NAG'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-11 19:25:51,203 - openai._base_client - DEBUG - request_id: req_bc17efe4fc106983467038a9100e6aac
+2025-07-11 19:25:51,209 - root - DEBUG - [ReasoningEngine] Raw LLM response:
+```json
+{
+  "next_action": "web_search",
+  "reasoning": "The user is requesting the latest guidelines from the Reserve Bank of India (RBI) on digital lending. Since this information is likely to be recent and possibly updated, a web search will provide the most current and relevant information.",
+  "confidence": 0.95
+}
+```
+2025-07-11 19:25:51,209 - root - INFO - [Planner] Selected tool: web_search
+2025-07-11 19:25:51,212 - root - INFO - [ToolRunner] Executing: web_search
+2025-07-11 19:25:51,214 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-11 19:25:52,003 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Search+for+the+latest+RBI+guidelines+on+digital+lending+and+summarize+them.&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-11 19:25:52,007 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.rbi.org.in:443
+2025-07-11 19:25:53,029 - urllib3.connectionpool - DEBUG - https://www.rbi.org.in:443 "GET /commonman/english/scripts/FAQs.aspx?Id=3413 HTTP/1.1" 200 None
+2025-07-11 19:25:53,032 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): coingeek.com:443
+2025-07-11 19:25:53,480 - urllib3.connectionpool - DEBUG - https://coingeek.com:443 "GET /rbi-issues-fresh-guidelines-for-digital-lending/ HTTP/1.1" 200 None
+2025-07-11 19:25:53,488 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): resources.probe42.in:443
+2025-07-11 19:25:53,910 - urllib3.connectionpool - DEBUG - https://resources.probe42.in:443 "GET /regulatory-updates/rbi-circulars/rbi-digital-lending-directions-2025/ HTTP/1.1" 200 None
+2025-07-11 19:25:54,330 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.leegality.com:443
+2025-07-11 19:25:54,815 - urllib3.connectionpool - DEBUG - https://www.leegality.com:443 "GET /blog/digital-lending-directions-2025 HTTP/1.1" 200 None
+2025-07-11 19:25:54,876 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): elplaw.in:443
+2025-07-11 19:25:57,415 - urllib3.connectionpool - DEBUG - https://elplaw.in:443 "GET /wp-content/uploads/2025/05/Regulatory-Update-on-RBIs-Consolidated-Digital-Lending-Framework-%E2%80%93-May-2025.pdf HTTP/1.1" 200 None
+2025-07-11 19:26:03,735 - charset_normalizer - DEBUG - Encoding detection: Unable to determine any suitable charset.
+2025-07-11 19:26:03,739 - root - INFO - [ToolRunner] Tool web_search completed
+2025-07-11 19:26:03,740 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-4d494bd4-4980-4a2f-a4e9-8669130091f1', 'json_data': {'messages': [{'content': '\nYou are a task planning agent that decides which tool to use next based on a user request and prior steps.\n\nAvailable tools and descriptions:\n- run_form_qa: Extracts questions from a contractor pre-qualification form and answers them using a knowledge base of company documents (PDFs, manuals, policies, etc.)\n- read_documents: Reads documents from the knowledge base for indexing and retrieval\n- screenshot_and_analyze: Takes a screenshot and performs OCR or visual analysis\n- web_search: Searches the internet for current information\n- run_code: Runs Python code for calculations or processing\n- run_shell_command: Executes system commands in a shell\n- use_computer: Interacts with desktop UI, like taking screenshots\n\nRespond in JSON format:\n{\n  "next_action": "tool_name",\n  "reasoning": "brief explanation of why the tool was chosen",\n  "confidence": 0.0–1.0\n}\n', 'role': 'system'}, {'content': "\nUser request: Search for the latest RBI guidelines on digital lending and summarize them.\nCompleted steps: ['web_search']\nErrors so far: []\n\nWhat tool should be used next?\n", 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.3}}
+2025-07-11 19:26:03,741 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-11 19:26:03,741 - httpcore.connection - DEBUG - close.started
+2025-07-11 19:26:03,741 - httpcore.connection - DEBUG - close.complete
+2025-07-11 19:26:03,741 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-11 19:26:03,827 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CEEF10>
+2025-07-11 19:26:03,828 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020AA6807920> server_hostname='api.openai.com' timeout=None
+2025-07-11 19:26:03,987 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA7D90C50>
+2025-07-11 19:26:03,988 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-11 19:26:03,988 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-11 19:26:03,988 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-11 19:26:03,988 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-11 19:26:03,989 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-11 19:26:05,901 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 11 Jul 2025 13:56:05 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1160'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1165'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999735'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_6d8847527b7136aee06f1fab9cdf24da'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d8cd50dd679a90-NAG'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-11 19:26:05,901 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 19:26:05,902 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-11 19:26:05,915 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-11 19:26:05,915 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-11 19:26:05,915 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-11 19:26:05,915 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 11 Jul 2025 13:56:05 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '1160', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1165', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '30000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '29999735', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_6d8847527b7136aee06f1fab9cdf24da', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d8cd50dd679a90-NAG', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-11 19:26:05,916 - openai._base_client - DEBUG - request_id: req_6d8847527b7136aee06f1fab9cdf24da
+2025-07-11 19:26:05,917 - root - DEBUG - [ReasoningEngine] Raw LLM response:
+```json
+{
+  "next_action": "web_search",
+  "reasoning": "Since the request is to find the latest RBI guidelines on digital lending, and the previous step was a web search, it is likely that the search needs to be refined or repeated to ensure the most current and relevant information is obtained.",
+  "confidence": 0.9
+}
+```
+2025-07-11 19:26:05,918 - root - INFO - [Planner] Selected tool: web_search
+2025-07-11 19:26:05,922 - root - INFO - [ToolRunner] Executing: web_search
+2025-07-11 19:26:05,923 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-11 19:26:06,340 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Search+for+the+latest+RBI+guidelines+on+digital+lending+and+summarize+them.&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-11 19:26:06,343 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.rbi.org.in:443
+2025-07-11 19:26:06,765 - urllib3.connectionpool - DEBUG - https://www.rbi.org.in:443 "GET /commonman/english/scripts/FAQs.aspx?Id=3413 HTTP/1.1" 200 None
+2025-07-11 19:26:06,768 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): coingeek.com:443
+2025-07-11 19:26:07,072 - urllib3.connectionpool - DEBUG - https://coingeek.com:443 "GET /rbi-issues-fresh-guidelines-for-digital-lending/ HTTP/1.1" 200 None
+2025-07-11 19:26:07,130 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): resources.probe42.in:443
+2025-07-11 19:26:07,301 - urllib3.connectionpool - DEBUG - https://resources.probe42.in:443 "GET /regulatory-updates/rbi-circulars/rbi-digital-lending-directions-2025/ HTTP/1.1" 200 None
+2025-07-11 19:26:07,389 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.leegality.com:443
+2025-07-11 19:26:08,531 - urllib3.connectionpool - DEBUG - https://www.leegality.com:443 "GET /blog/digital-lending-directions-2025 HTTP/1.1" 200 None
+2025-07-11 19:26:09,417 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): elplaw.in:443
+2025-07-11 19:26:10,794 - urllib3.connectionpool - DEBUG - https://elplaw.in:443 "GET /wp-content/uploads/2025/05/Regulatory-Update-on-RBIs-Consolidated-Digital-Lending-Framework-%E2%80%93-May-2025.pdf HTTP/1.1" 200 None
+2025-07-11 19:26:16,198 - charset_normalizer - DEBUG - Encoding detection: Unable to determine any suitable charset.
+2025-07-11 19:26:16,203 - root - INFO - [ToolRunner] Tool web_search completed
+2025-07-11 19:26:16,205 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-8e3b0473-9124-4f15-8bb7-66d6cfc6fb4d', 'json_data': {'messages': [{'content': '\nYou are a task planning agent that decides which tool to use next based on a user request and prior steps.\n\nAvailable tools and descriptions:\n- run_form_qa: Extracts questions from a contractor pre-qualification form and answers them using a knowledge base of company documents (PDFs, manuals, policies, etc.)\n- read_documents: Reads documents from the knowledge base for indexing and retrieval\n- screenshot_and_analyze: Takes a screenshot and performs OCR or visual analysis\n- web_search: Searches the internet for current information\n- run_code: Runs Python code for calculations or processing\n- run_shell_command: Executes system commands in a shell\n- use_computer: Interacts with desktop UI, like taking screenshots\n\nRespond in JSON format:\n{\n  "next_action": "tool_name",\n  "reasoning": "brief explanation of why the tool was chosen",\n  "confidence": 0.0–1.0\n}\n', 'role': 'system'}, {'content': "\nUser request: Search for the latest RBI guidelines on digital lending and summarize them.\nCompleted steps: ['web_search', 'web_search']\nErrors so far: []\n\nWhat tool should be used next?\n", 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.3}}
+2025-07-11 19:26:16,205 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-11 19:26:16,205 - httpcore.connection - DEBUG - close.started
+2025-07-11 19:26:16,206 - httpcore.connection - DEBUG - close.complete
+2025-07-11 19:26:16,206 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-11 19:26:16,265 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CFFC90>
+2025-07-11 19:26:16,266 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020AA6807920> server_hostname='api.openai.com' timeout=None
+2025-07-11 19:26:16,418 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CBD990>
+2025-07-11 19:26:16,418 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-11 19:26:16,419 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-11 19:26:16,419 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-11 19:26:16,419 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-11 19:26:16,420 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-11 19:26:51,326 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 11 Jul 2025 13:56:17 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1351'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1357'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999733'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_9c4a327de1c62796f42e674e1734a406'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d8cd9e78b29aa2-NAG'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-11 19:26:51,327 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 19:26:51,328 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-11 19:26:51,328 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-11 19:26:51,328 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-11 19:26:51,328 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-11 19:26:51,328 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 11 Jul 2025 13:56:17 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '1351', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1357', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '30000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '29999733', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_9c4a327de1c62796f42e674e1734a406', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d8cd9e78b29aa2-NAG', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-11 19:26:51,328 - openai._base_client - DEBUG - request_id: req_9c4a327de1c62796f42e674e1734a406
+2025-07-11 19:26:51,329 - root - DEBUG - [ReasoningEngine] Raw LLM response:
+```json
+{
+  "next_action": "web_search",
+  "reasoning": "Since the user is requesting the latest RBI guidelines on digital lending, and the previous steps involved web searches, it is likely that further web searches may be needed to find the most recent and relevant information. Continuing with web searches will help ensure that the latest guidelines are found.",
+  "confidence": 0.8
+}
+```
+2025-07-11 19:26:51,330 - root - INFO - [Planner] Selected tool: web_search
+2025-07-11 19:26:51,331 - root - INFO - [ToolRunner] Executing: web_search
+2025-07-11 19:26:51,333 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-11 19:26:52,281 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Search+for+the+latest+RBI+guidelines+on+digital+lending+and+summarize+them.&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-11 19:26:52,283 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.rbi.org.in:443
+2025-07-11 19:26:52,967 - urllib3.connectionpool - DEBUG - https://www.rbi.org.in:443 "GET /commonman/english/scripts/FAQs.aspx?Id=3413 HTTP/1.1" 200 None
+2025-07-11 19:26:52,971 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): coingeek.com:443
+2025-07-11 19:26:53,966 - urllib3.connectionpool - DEBUG - https://coingeek.com:443 "GET /rbi-issues-fresh-guidelines-for-digital-lending/ HTTP/1.1" 200 None
+2025-07-11 19:26:53,982 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): resources.probe42.in:443
+2025-07-11 19:26:54,239 - urllib3.connectionpool - DEBUG - https://resources.probe42.in:443 "GET /regulatory-updates/rbi-circulars/rbi-digital-lending-directions-2025/ HTTP/1.1" 200 None
+2025-07-11 19:26:54,487 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.leegality.com:443
+2025-07-11 19:26:55,122 - urllib3.connectionpool - DEBUG - https://www.leegality.com:443 "GET /blog/digital-lending-directions-2025 HTTP/1.1" 200 None
+2025-07-11 19:26:55,234 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): elplaw.in:443
+2025-07-11 19:26:56,512 - urllib3.connectionpool - DEBUG - https://elplaw.in:443 "GET /wp-content/uploads/2025/05/Regulatory-Update-on-RBIs-Consolidated-Digital-Lending-Framework-%E2%80%93-May-2025.pdf HTTP/1.1" 200 None
+2025-07-11 19:26:58,401 - charset_normalizer - DEBUG - Encoding detection: Unable to determine any suitable charset.
+2025-07-11 19:26:58,406 - root - INFO - [ToolRunner] Tool web_search completed
+2025-07-11 19:26:58,409 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a555b63b-57d3-4946-975f-61e61265a69a', 'json_data': {'messages': [{'content': '\nYou are a task planning agent that decides which tool to use next based on a user request and prior steps.\n\nAvailable tools and descriptions:\n- run_form_qa: Extracts questions from a contractor pre-qualification form and answers them using a knowledge base of company documents (PDFs, manuals, policies, etc.)\n- read_documents: Reads documents from the knowledge base for indexing and retrieval\n- screenshot_and_analyze: Takes a screenshot and performs OCR or visual analysis\n- web_search: Searches the internet for current information\n- run_code: Runs Python code for calculations or processing\n- run_shell_command: Executes system commands in a shell\n- use_computer: Interacts with desktop UI, like taking screenshots\n\nRespond in JSON format:\n{\n  "next_action": "tool_name",\n  "reasoning": "brief explanation of why the tool was chosen",\n  "confidence": 0.0–1.0\n}\n', 'role': 'system'}, {'content': "\nUser request: Search for the latest RBI guidelines on digital lending and summarize them.\nCompleted steps: ['web_search', 'web_search', 'web_search']\nErrors so far: []\n\nWhat tool should be used next?\n", 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.3}}
+2025-07-11 19:26:58,410 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-11 19:26:58,411 - httpcore.connection - DEBUG - close.started
+2025-07-11 19:26:58,411 - httpcore.connection - DEBUG - close.complete
+2025-07-11 19:26:58,411 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-11 19:26:58,990 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CBD450>
+2025-07-11 19:26:58,990 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020AA6807920> server_hostname='api.openai.com' timeout=None
+2025-07-11 19:26:59,035 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA7E02F10>
+2025-07-11 19:26:59,035 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-11 19:26:59,036 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-11 19:26:59,036 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-11 19:26:59,036 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-11 19:26:59,036 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-11 19:27:00,549 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 11 Jul 2025 13:56:59 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1175'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1178'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999729'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_db609992dfa3c581da5d14478893ea70'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d8cea8ddb39a84-NAG'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-11 19:27:00,549 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 19:27:00,550 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-11 19:27:00,552 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-11 19:27:00,552 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-11 19:27:00,552 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-11 19:27:00,552 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 11 Jul 2025 13:56:59 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '1175', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1178', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '30000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '29999729', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_db609992dfa3c581da5d14478893ea70', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d8cea8ddb39a84-NAG', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-11 19:27:00,552 - openai._base_client - DEBUG - request_id: req_db609992dfa3c581da5d14478893ea70
+2025-07-11 19:27:00,553 - root - DEBUG - [ReasoningEngine] Raw LLM response:
+```json
+{
+  "next_action": "web_search",
+  "reasoning": "The user request involves finding the latest guidelines from the Reserve Bank of India (RBI) on digital lending. Since the task is to search for the most current information, continuing with web searches is appropriate to gather the latest updates or official announcements.",
+  "confidence": 0.9
+}
+```
+2025-07-11 19:27:00,553 - root - INFO - [Planner] Selected tool: web_search
+2025-07-11 19:27:00,553 - root - INFO - [ToolRunner] Executing: web_search
+2025-07-11 19:27:00,554 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-11 19:27:00,831 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Search+for+the+latest+RBI+guidelines+on+digital+lending+and+summarize+them.&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-11 19:27:00,834 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.rbi.org.in:443
+2025-07-11 19:27:03,168 - urllib3.connectionpool - DEBUG - https://www.rbi.org.in:443 "GET /commonman/english/scripts/FAQs.aspx?Id=3413 HTTP/1.1" 200 None
+2025-07-11 19:27:03,189 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): coingeek.com:443
+2025-07-11 19:27:03,497 - urllib3.connectionpool - DEBUG - https://coingeek.com:443 "GET /rbi-issues-fresh-guidelines-for-digital-lending/ HTTP/1.1" 200 None
+2025-07-11 19:27:03,504 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): resources.probe42.in:443
+2025-07-11 19:27:03,736 - urllib3.connectionpool - DEBUG - https://resources.probe42.in:443 "GET /regulatory-updates/rbi-circulars/rbi-digital-lending-directions-2025/ HTTP/1.1" 200 None
+2025-07-11 19:27:03,858 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.leegality.com:443
+2025-07-11 19:27:04,891 - urllib3.connectionpool - DEBUG - https://www.leegality.com:443 "GET /blog/digital-lending-directions-2025 HTTP/1.1" 200 None
+2025-07-11 19:27:05,246 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): elplaw.in:443
+2025-07-11 19:27:06,687 - urllib3.connectionpool - DEBUG - https://elplaw.in:443 "GET /wp-content/uploads/2025/05/Regulatory-Update-on-RBIs-Consolidated-Digital-Lending-Framework-%E2%80%93-May-2025.pdf HTTP/1.1" 200 None
+2025-07-11 19:27:08,257 - charset_normalizer - DEBUG - Encoding detection: Unable to determine any suitable charset.
+2025-07-11 19:27:08,262 - root - INFO - [ToolRunner] Tool web_search completed
+2025-07-11 19:27:08,265 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-37fad654-e47f-41a2-9dbb-64415f80cfe9', 'json_data': {'messages': [{'content': '\nYou are a task planning agent that decides which tool to use next based on a user request and prior steps.\n\nAvailable tools and descriptions:\n- run_form_qa: Extracts questions from a contractor pre-qualification form and answers them using a knowledge base of company documents (PDFs, manuals, policies, etc.)\n- read_documents: Reads documents from the knowledge base for indexing and retrieval\n- screenshot_and_analyze: Takes a screenshot and performs OCR or visual analysis\n- web_search: Searches the internet for current information\n- run_code: Runs Python code for calculations or processing\n- run_shell_command: Executes system commands in a shell\n- use_computer: Interacts with desktop UI, like taking screenshots\n\nRespond in JSON format:\n{\n  "next_action": "tool_name",\n  "reasoning": "brief explanation of why the tool was chosen",\n  "confidence": 0.0–1.0\n}\n', 'role': 'system'}, {'content': "\nUser request: Search for the latest RBI guidelines on digital lending and summarize them.\nCompleted steps: ['web_search', 'web_search', 'web_search', 'web_search']\nErrors so far: []\n\nWhat tool should be used next?\n", 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.3}}
+2025-07-11 19:27:08,266 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-11 19:27:08,267 - httpcore.connection - DEBUG - close.started
+2025-07-11 19:27:08,267 - httpcore.connection - DEBUG - close.complete
+2025-07-11 19:27:08,268 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-11 19:27:08,380 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CFD850>
+2025-07-11 19:27:08,380 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020AA6807920> server_hostname='api.openai.com' timeout=None
+2025-07-11 19:27:08,432 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020AA6CFC190>
+2025-07-11 19:27:08,432 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-11 19:27:08,432 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-11 19:27:08,433 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-11 19:27:08,433 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-11 19:27:08,433 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-11 19:27:10,807 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 11 Jul 2025 13:57:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1887'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1889'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999725'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_8410be53f52734ebd7f8e1d63a68f076'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d8cee38d069a77-NAG'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-11 19:27:10,810 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-11 19:27:10,810 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-11 19:27:10,811 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-11 19:27:10,811 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-11 19:27:10,811 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-11 19:27:10,811 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 11 Jul 2025 13:57:09 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '1887', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1889', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '30000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '29999725', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_8410be53f52734ebd7f8e1d63a68f076', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d8cee38d069a77-NAG', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-11 19:27:10,812 - openai._base_client - DEBUG - request_id: req_8410be53f52734ebd7f8e1d63a68f076
+2025-07-11 19:27:10,813 - root - DEBUG - [ReasoningEngine] Raw LLM response:
+```json
+{
+  "next_action": "web_search",
+  "reasoning": "The user is looking for the latest RBI guidelines on digital lending, which is most likely to be found through an internet search. Since multiple web searches have already been conducted, continuing with web searches is the most direct method to ensure the latest information is retrieved.",
+  "confidence": 0.9
+}
+```
+2025-07-11 19:27:10,813 - root - INFO - [Planner] Selected tool: web_search
+2025-07-11 19:27:10,814 - root - INFO - [ToolRunner] Executing: web_search
+2025-07-11 19:27:10,816 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-11 19:27:11,793 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Search+for+the+latest+RBI+guidelines+on+digital+lending+and+summarize+them.&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-11 19:27:11,796 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.rbi.org.in:443
+2025-07-11 19:27:12,432 - urllib3.connectionpool - DEBUG - https://www.rbi.org.in:443 "GET /commonman/english/scripts/FAQs.aspx?Id=3413 HTTP/1.1" 200 None
+2025-07-11 19:27:12,437 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): coingeek.com:443
+2025-07-11 19:27:12,784 - urllib3.connectionpool - DEBUG - https://coingeek.com:443 "GET /rbi-issues-fresh-guidelines-for-digital-lending/ HTTP/1.1" 200 None
+2025-07-11 19:27:12,795 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): resources.probe42.in:443
+2025-07-11 19:27:13,068 - urllib3.connectionpool - DEBUG - https://resources.probe42.in:443 "GET /regulatory-updates/rbi-circulars/rbi-digital-lending-directions-2025/ HTTP/1.1" 200 None
+2025-07-11 19:27:13,156 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.leegality.com:443
+2025-07-11 19:27:13,684 - urllib3.connectionpool - DEBUG - https://www.leegality.com:443 "GET /blog/digital-lending-directions-2025 HTTP/1.1" 200 None
+2025-07-11 19:27:13,754 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): elplaw.in:443
+2025-07-11 19:27:15,383 - urllib3.connectionpool - DEBUG - https://elplaw.in:443 "GET /wp-content/uploads/2025/05/Regulatory-Update-on-RBIs-Consolidated-Digital-Lending-Framework-%E2%80%93-May-2025.pdf HTTP/1.1" 200 None
+2025-07-11 19:27:16,692 - charset_normalizer - DEBUG - Encoding detection: Unable to determine any suitable charset.
+2025-07-11 19:27:16,696 - root - INFO - [ToolRunner] Tool web_search completed
+2025-07-11 19:27:16,697 - root - INFO - [Finalizer] Returning final result with XML...
+2025-07-11 19:27:17,100 - httpcore.connection - DEBUG - close.started
+2025-07-11 19:27:17,101 - httpcore.connection - DEBUG - close.complete

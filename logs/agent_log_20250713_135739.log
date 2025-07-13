@@ -1,0 +1,61 @@
+2025-07-13 13:57:49,057 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): app.daytona.io:443
+2025-07-13 13:57:51,236 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "POST /api/sandbox HTTP/1.1" 200 522
+2025-07-13 13:57:51,810 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "GET /api/toolbox/8f2aa18c-bb8e-440b-98c5-75e01becf1a5/toolbox/project-dir HTTP/1.1" 200 23
+2025-07-13 13:57:52,434 - urllib3.connectionpool - DEBUG - https://app.daytona.io:443 "POST /api/toolbox/8f2aa18c-bb8e-440b-98c5-75e01becf1a5/toolbox/process/execute HTTP/1.1" 200 30
+2025-07-13 13:57:52,439 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-13 13:57:52,441 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-13 13:57:52,824 - root - INFO - [ComputerUseTool] Screenshot saved and base64 encoded.
+2025-07-13 13:57:52,829 - root - INFO - [FilesTool] Initialized with base path: workspace/Form
+2025-07-13 13:57:52,831 - root - DEBUG - [FilesTool] Found 2 files in workspace/Form
+2025-07-13 13:57:52,831 - root - INFO - [FilesTool] Processing file: workspace/Form\.DS_Store
+2025-07-13 13:57:52,831 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-13 13:57:52,831 - root - INFO - [FilesTool] Processing file: workspace/Form\Pre Qual Form.pdf
+2025-07-13 13:57:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:57:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:57:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-13 13:57:53,197 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_vu3jfklm_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_vu3jfklm', 'txt']
+2025-07-13 13:57:55,145 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:57:55,145 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:57:55,145 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-13 13:57:55,317 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_y097nrxu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_y097nrxu', 'txt']
+2025-07-13 13:57:57,300 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:57:57,300 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:57:57,300 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-13 13:57:57,468 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wg10f8h0_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wg10f8h0', 'txt']
+2025-07-13 13:57:59,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:57:59,306 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:57:59,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-13 13:57:59,437 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_iea12qau_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_iea12qau', 'txt']
+2025-07-13 13:58:00,755 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:58:00,756 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:58:00,756 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-13 13:58:00,876 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ozw3alfp_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ozw3alfp', 'txt']
+2025-07-13 13:58:02,020 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:58:02,021 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:58:02,021 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-13 13:58:02,134 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8zyixf20_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8zyixf20', 'txt']
+2025-07-13 13:58:02,927 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Form\Pre Qual Form.pdf
+2025-07-13 13:58:02,932 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Form
+2025-07-13 13:58:02,937 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s
+2025-07-13 13:58:02,937 - root - INFO - [ShellTool] Executing command: echo Hello Agent
+2025-07-13 13:58:02,962 - root - INFO - [ShellTool] Command succeeded: echo Hello Agent
+2025-07-13 13:58:02,962 - root - DEBUG - [ShellTool] Output: Hello Agent
+2025-07-13 13:58:02,964 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-13 13:58:02,964 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-13 13:58:03,225 - root - INFO - [ComputerUseTool] Screenshot saved and base64 encoded.
+2025-07-13 13:58:03,230 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-13 13:58:03,230 - root - INFO - [VisionTool] Starting OCR analysis...
+2025-07-13 13:58:03,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:58:03,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 65536
+2025-07-13 13:58:03,250 - root - DEBUG - [VisionTool] Image decoded successfully.
+2025-07-13 13:58:03,309 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ahx7o63w_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ahx7o63w', 'txt']
+2025-07-13 13:58:06,008 - root - INFO - [VisionTool] OCR completed.
+2025-07-13 13:58:06,010 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-13 13:58:06,012 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): serpapi.com:443
+2025-07-13 13:58:07,178 - urllib3.connectionpool - DEBUG - https://serpapi.com:443 "GET /search?q=Hello&api_key=8ed7a33b3122623a9f895127f33ffab4fb2e2af7c8289b214d706babf4e7081d&num=5&output=json HTTP/1.1" 200 None
+2025-07-13 13:58:07,186 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.hellomagazine.com:443
+2025-07-13 13:58:08,307 - urllib3.connectionpool - DEBUG - https://www.hellomagazine.com:443 "GET /us/ HTTP/1.1" 200 None
+2025-07-13 13:58:08,418 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): en.wikipedia.org:443
+2025-07-13 13:58:08,743 - urllib3.connectionpool - DEBUG - https://en.wikipedia.org:443 "GET /wiki/Hello_(Adele_song) HTTP/1.1" 200 99392
+2025-07-13 13:58:08,996 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.hello-products.com:443
+2025-07-13 13:58:09,337 - urllib3.connectionpool - DEBUG - https://www.hello-products.com:443 "GET /?srsltid=AfmBOooHf6kiFKVGQF-JMyYrnI5GjjFYmT_X6bGfNA12NM1vCqAOydNn HTTP/1.1" 200 None

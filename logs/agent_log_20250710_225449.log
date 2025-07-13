@@ -1,0 +1,52 @@
+2025-07-10 22:55:01,825 - root - INFO - [FilesTool] Initialized with base path: workspace/Form
+2025-07-10 22:55:01,826 - root - DEBUG - [FilesTool] Found 2 files in workspace/Form
+2025-07-10 22:55:01,826 - root - INFO - [FilesTool] Processing file: workspace/Form\.DS_Store
+2025-07-10 22:55:01,827 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-10 22:55:01,827 - root - INFO - [FilesTool] Processing file: workspace/Form\Pre Qual Form.pdf
+2025-07-10 22:55:02,615 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:02,616 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:02,616 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-10 22:55:02,803 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dhgn3f6s_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dhgn3f6s', 'txt']
+2025-07-10 22:55:06,195 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:06,195 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:06,196 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-10 22:55:06,385 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_k_mo8yy1_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_k_mo8yy1', 'txt']
+2025-07-10 22:55:08,362 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:08,362 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:08,362 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-10 22:55:08,535 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xz7mqq3w_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xz7mqq3w', 'txt']
+2025-07-10 22:55:10,295 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:10,296 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:10,296 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-10 22:55:10,425 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_94pfipze_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_94pfipze', 'txt']
+2025-07-10 22:55:11,675 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:11,675 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:11,676 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-10 22:55:11,793 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1zvi50hx_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1zvi50hx', 'txt']
+2025-07-10 22:55:12,936 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 22:55:12,936 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 22:55:12,936 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-10 22:55:13,046 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aus0e5hk_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aus0e5hk', 'txt']
+2025-07-10 22:55:13,817 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Form\Pre Qual Form.pdf
+2025-07-10 22:55:13,877 - root - INFO - [FilesTool] Completed extraction from folder: workspace/Form
+2025-07-10 22:55:16,529 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-185ab699-adb4-4f0c-ab18-cfef1adf413f', 'json_data': {'messages': [{'content': '\nYou are a helpful assistant tasked with extracting questions from a company pre-qualification form.\n\nFrom the following raw form text (OCR\'d), identify all fields or prompts that request an answer.\n\nConvert even short field names like \'NAME\' or \'DATE\' into full human-readable questions like:\n- "What is the name of the company?"\n- "What is the date of this submission?"\n\nAvoid system junk like \'Unsupported file type\'.\n\nReturn the result as a clean Python list of 50–80 questions.\nUse ONLY information visible in the text. Do NOT invent anything.\n', 'role': 'user'}, {'content': '--- FORM TEXT START ---\nUnsupported file type:\n--- FORM TEXT END ---', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.1}}
+2025-07-10 22:55:16,564 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-10 22:55:16,564 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-10 22:55:16,691 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BEDBB4ACD0>
+2025-07-10 22:55:16,692 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BEDB6C09E0> server_hostname='api.openai.com' timeout=None
+2025-07-10 22:55:16,781 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BEDBB4AE90>
+2025-07-10 22:55:16,782 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-10 22:55:16,783 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-10 22:55:16,783 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-10 22:55:16,783 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-10 22:55:16,783 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-10 22:55:18,660 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 10 Jul 2025 17:25:18 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1474'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1490'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999842'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_e53d12f7d02503479b0a3c0dfb29b791'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Uaf6dQDXoaWLptCJt8Vh1iIroHsZgiDzoxbGif59Eb4-1752168318-1.0.1.1-zqebae5NAzUYs8jNnYK3rDrLLRxVZI320SFh38FkPO_AHrbvM3yXCQUPLdAQ_raFONixeXDAzjk3TIUSkvY1X9QPEhOYc0nE0QPtFZTQq.Q; path=/; expires=Thu, 10-Jul-25 17:55:18 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Vb.nk.OAgDb_dumcD9ULELpSBBj0itvZ2v9_XmXaB1A-1752168318603-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d1c26c1d1dcbcd-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-10 22:55:18,663 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 22:55:18,665 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-10 22:55:18,665 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-10 22:55:18,666 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-10 22:55:18,666 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-10 22:55:18,667 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Thu, 10 Jul 2025 17:25:18 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1474'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1490'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999842'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_e53d12f7d02503479b0a3c0dfb29b791'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=Uaf6dQDXoaWLptCJt8Vh1iIroHsZgiDzoxbGif59Eb4-1752168318-1.0.1.1-zqebae5NAzUYs8jNnYK3rDrLLRxVZI320SFh38FkPO_AHrbvM3yXCQUPLdAQ_raFONixeXDAzjk3TIUSkvY1X9QPEhOYc0nE0QPtFZTQq.Q; path=/; expires=Thu, 10-Jul-25 17:55:18 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=Vb.nk.OAgDb_dumcD9ULELpSBBj0itvZ2v9_XmXaB1A-1752168318603-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95d1c26c1d1dcbcd-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-10 22:55:18,667 - openai._base_client - DEBUG - request_id: req_e53d12f7d02503479b0a3c0dfb29b791
+2025-07-10 22:55:19,067 - httpcore.connection - DEBUG - close.started
+2025-07-10 22:55:19,069 - httpcore.connection - DEBUG - close.complete

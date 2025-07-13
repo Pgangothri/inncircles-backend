@@ -1,0 +1,4 @@
+2025-07-10 14:57:32,827 - root - INFO - [GeneralAgent] Initializing...
+2025-07-10 14:57:35,881 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-10 14:57:35,882 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-10 14:57:35,882 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images

@@ -1,0 +1,39 @@
+2025-07-09 22:18:19,669 - root - INFO - [VisionTool] Running standalone OCR test via screenshot...
+2025-07-09 22:18:19,670 - root - INFO - [ComputerUseTool] Initialized.
+2025-07-09 22:18:19,670 - root - DEBUG - [ComputerUseTool] Taking screenshot...
+2025-07-09 22:18:20,306 - root - INFO - [ComputerUseTool] Screenshot captured successfully.
+2025-07-09 22:18:20,315 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-09 22:18:20,316 - root - INFO - [VisionTool] Starting OCR analysis...
+2025-07-09 22:18:20,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-09 22:18:20,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 65536
+2025-07-09 22:18:20,377 - root - DEBUG - [VisionTool] Image decoded successfully.
+2025-07-09 22:18:20,467 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_t_jox6au_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_t_jox6au', 'txt']
+2025-07-09 22:18:20,730 - root - ERROR - [VisionTool] OCR failed: C:\Program Files\Tesseract-OCR	esseract.exe is not installed or it's not in your PATH. See README file for more information.
+Traceback (most recent call last):
+  File "D:\inncircles\venv\Lib\site-packages\pytesseract\pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1022, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\subprocess.py", line 1491, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\inncircles\src\tools\vision_tool.py", line 40, in analyze_base64_image
+    text = pytesseract.image_to_string(image)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\pytesseract\pytesseract.py", line 486, in image_to_string
+    return {
+           ^
+  File "D:\inncircles\venv\Lib\site-packages\pytesseract\pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\pytesseract\pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+  File "D:\inncircles\venv\Lib\site-packages\pytesseract\pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR	esseract.exe is not installed or it's not in your PATH. See README file for more information.

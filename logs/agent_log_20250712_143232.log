@@ -1,0 +1,4 @@
+2025-07-12 14:32:32,522 - root - INFO - [MemoryManager] Using existing memory file at workspace/memory.json
+2025-07-12 14:32:32,523 - root - INFO - [MemoryManager] Retrieving relevant memories for query: screenshot analyze
+2025-07-12 14:32:32,535 - root - INFO - [MemoryManager] Loaded memory history
+2025-07-12 14:32:32,537 - root - INFO - [MemoryManager] Retrieved 2 relevant memories

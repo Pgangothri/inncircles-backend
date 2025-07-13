@@ -1,0 +1,850 @@
+2025-07-10 18:09:05,170 - root - INFO - [GeneralAgent] Initializing...
+2025-07-10 18:09:07,947 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-10 18:09:07,948 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-10 18:09:07,949 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-10 18:09:08,005 - root - INFO - [GeneralAgent] Initialized.
+2025-07-10 18:09:08,006 - root - INFO - 
+[GeneralAgent] === START RUN ===
+2025-07-10 18:09:08,008 - root - INFO - [GeneralAgent] Prompt: Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.
+2025-07-10 18:09:08,071 - root - INFO - [Planner] Planning next action...
+2025-07-10 18:09:08,072 - root - DEBUG - [ReasoningEngine] Planning prompt:
+
+You are an autonomous agent responsible for deciding the next best action.
+
+User Request:
+"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""
+
+Based on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.
+
+Respond ONLY in valid JSON with:
+- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]
+- tool_call (object): includes "action" and optional "params"
+
+
+Examples:
+
+User Prompt: "Use the documents to answer the pre-qualification questionnaire"
+Tool Plan:
+{
+  "next_action": "read_documents",
+  "tool_call": {
+    "action": "read_documents"
+  }
+}
+
+User Prompt: "Check what's on the screen and extract text"
+Tool Plan:
+{
+  "next_action": "screenshot_and_analyze",
+  "tool_call": {
+    "action": "screenshot_and_analyze"
+  }
+}
+
+User Prompt: "Search for latest AML KYC compliance laws"
+Tool Plan:
+{
+  "next_action": "web_search",
+  "tool_call": {
+    "action": "web_search",
+    "params": {
+      "query": "latest AML KYC compliance 2024"
+    }
+  }
+}
+
+User Prompt: "Run shell to list current directory"
+Tool Plan:
+{
+  "next_action": "run_shell_command",
+  "tool_call": {
+    "action": "run_shell_command",
+    "params": {
+      "command": "ls -la"
+    }
+  }
+}
+
+Important: DO NOT include explanations or markdown. Only valid JSON.
+Answer:
+
+2025-07-10 18:09:08,073 - root - INFO - [ReasoningEngine] Initializing LLM with model=gpt-3.5-turbo, temp=0.3
+2025-07-10 18:09:08,111 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-19c4babe-cf65-4ed2-acde-2094139a69f7', 'json_data': {'messages': [{'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}, {'content': '\nYou are an autonomous agent responsible for deciding the next best action.\n\nUser Request:\n"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""\n\nBased on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.\n\nRespond ONLY in valid JSON with:\n- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]\n- tool_call (object): includes "action" and optional "params"\n\n\nExamples:\n\nUser Prompt: "Use the documents to answer the pre-qualification questionnaire"\nTool Plan:\n{\n  "next_action": "read_documents",\n  "tool_call": {\n    "action": "read_documents"\n  }\n}\n\nUser Prompt: "Check what\'s on the screen and extract text"\nTool Plan:\n{\n  "next_action": "screenshot_and_analyze",\n  "tool_call": {\n    "action": "screenshot_and_analyze"\n  }\n}\n\nUser Prompt: "Search for latest AML KYC compliance laws"\nTool Plan:\n{\n  "next_action": "web_search",\n  "tool_call": {\n    "action": "web_search",\n    "params": {\n      "query": "latest AML KYC compliance 2024"\n    }\n  }\n}\n\nUser Prompt: "Run shell to list current directory"\nTool Plan:\n{\n  "next_action": "run_shell_command",\n  "tool_call": {\n    "action": "run_shell_command",\n    "params": {\n      "command": "ls -la"\n    }\n  }\n}\n\nImportant: DO NOT include explanations or markdown. Only valid JSON.\nAnswer:\n', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.3}}
+2025-07-10 18:09:08,201 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-10 18:09:08,202 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-10 18:09:08,772 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001B9C529EA50>
+2025-07-10 18:09:08,772 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001B9C4E21880> server_hostname='api.openai.com' timeout=None
+2025-07-10 18:09:09,242 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001B9C529EC10>
+2025-07-10 18:09:09,242 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-10 18:09:09,243 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-10 18:09:09,245 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-10 18:09:09,245 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-10 18:09:09,245 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-10 18:09:12,632 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 10 Jul 2025 12:39:14 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'751'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'767'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'50000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'49999606'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_593da9e223363a72f3f7841ed59c045a'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=zZGLE3pHhoApBGHB3uF.ieQ6AlJtCnVsTjKrkZCjp_k-1752151154-1.0.1.1-AjTgbwxN9pjrAzRG7OXtWm4OGvNJEBhIPLOgDA.Ab1Fh27LZIip29H4dQva6IfGc3ZM5y7_JvIDx8KExYcCaM7us62pyjyMTFTy7TQcEzf0; path=/; expires=Thu, 10-Jul-25 13:09:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=2xI_j4ktShKsW6zPShyuXV1F0E_7ZmKx37QPQimTlyU-1752151154376-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d01f560e7b79f4-HYD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-10 18:09:12,635 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 18:09:12,636 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-10 18:09:12,638 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-10 18:09:12,639 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-10 18:09:12,639 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-10 18:09:12,640 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Thu, 10 Jul 2025 12:39:14 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '751'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '767'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '50000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '49999606'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_593da9e223363a72f3f7841ed59c045a'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=zZGLE3pHhoApBGHB3uF.ieQ6AlJtCnVsTjKrkZCjp_k-1752151154-1.0.1.1-AjTgbwxN9pjrAzRG7OXtWm4OGvNJEBhIPLOgDA.Ab1Fh27LZIip29H4dQva6IfGc3ZM5y7_JvIDx8KExYcCaM7us62pyjyMTFTy7TQcEzf0; path=/; expires=Thu, 10-Jul-25 13:09:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=2xI_j4ktShKsW6zPShyuXV1F0E_7ZmKx37QPQimTlyU-1752151154376-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95d01f560e7b79f4-HYD'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-10 18:09:12,641 - openai._base_client - DEBUG - request_id: req_593da9e223363a72f3f7841ed59c045a
+2025-07-10 18:09:12,668 - root - DEBUG - [ReasoningEngine] LLM response: {
+  "next_action": "read_documents",
+  "tool_call": {
+    "action": "read_documents"
+  }
+}
+2025-07-10 18:09:12,669 - root - INFO - [Planner] Next: read_documents | Tool call: {'action': 'read_documents'}
+2025-07-10 18:09:12,675 - root - INFO - [ToolRunner] Running tool: read_documents
+2025-07-10 18:09:12,679 - root - DEBUG - [FilesTool] Found 14 files in workspace
+2025-07-10 18:09:12,679 - root - INFO - [FilesTool] Processing file: workspace\Form\.DS_Store
+2025-07-10 18:09:12,681 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-10 18:09:12,684 - root - INFO - [FilesTool] Processing file: workspace\Form\Insurance Policies.docx
+2025-07-10 18:09:12,935 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Insurance Policies.docx
+2025-07-10 18:09:12,935 - root - INFO - [FilesTool] Processing file: workspace\Form\ISO 9001 Streamform Contractors.pdf
+2025-07-10 18:09:14,456 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:14,456 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:14,456 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 496173
+2025-07-10 18:09:15,032 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nnjy84zf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nnjy84zf', 'txt']
+2025-07-10 18:09:16,856 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Form\ISO 9001 Streamform Contractors.pdf
+2025-07-10 18:09:16,868 - root - INFO - [FilesTool] Processing file: workspace\Form\OSHA Deminimus.docx
+2025-07-10 18:09:16,904 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\OSHA Deminimus.docx
+2025-07-10 18:09:16,904 - root - INFO - [FilesTool] Processing file: workspace\Form\OSHA Serious Violation 2.docx
+2025-07-10 18:09:16,934 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\OSHA Serious Violation 2.docx
+2025-07-10 18:09:16,934 - root - INFO - [FilesTool] Processing file: workspace\Form\Pre Qual Form.pdf
+2025-07-10 18:09:17,560 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:17,561 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:17,561 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-10 18:09:18,012 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_d297h2lq_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_d297h2lq', 'txt']
+2025-07-10 18:09:20,358 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:20,358 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:20,359 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-10 18:09:20,854 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_a0p3ted0_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_a0p3ted0', 'txt']
+2025-07-10 18:09:24,110 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:24,110 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:24,110 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-10 18:09:24,609 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wbmhek01_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wbmhek01', 'txt']
+2025-07-10 18:09:27,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:27,673 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:27,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-10 18:09:28,132 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_t5hpvr95_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_t5hpvr95', 'txt']
+2025-07-10 18:09:30,174 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:30,174 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:30,174 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-10 18:09:30,462 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0szkginy_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0szkginy', 'txt']
+2025-07-10 18:09:32,393 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:32,393 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:32,394 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-10 18:09:32,687 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7goef26r_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7goef26r', 'txt']
+2025-07-10 18:09:34,266 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Form\Pre Qual Form.pdf
+2025-07-10 18:09:34,272 - root - INFO - [FilesTool] Processing file: workspace\Form\Safety Report 2021.docx
+2025-07-10 18:09:34,343 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Safety Report 2021.docx
+2025-07-10 18:09:34,343 - root - INFO - [FilesTool] Processing file: workspace\Form\Safety Report 2022.docx
+2025-07-10 18:09:34,379 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Safety Report 2022.docx
+2025-07-10 18:09:34,380 - root - INFO - [FilesTool] Processing file: workspace\Form\Safety Report 2023.docx
+2025-07-10 18:09:34,424 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Safety Report 2023.docx
+2025-07-10 18:09:34,424 - root - INFO - [FilesTool] Processing file: workspace\Form\Streamform Contractors Company Profile Latestt.docx
+2025-07-10 18:09:34,558 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Streamform Contractors Company Profile Latestt.docx
+2025-07-10 18:09:34,558 - root - INFO - [FilesTool] Processing file: workspace\Form\Streamform Drug Free Workplace Program.docx
+2025-07-10 18:09:34,691 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Form\Streamform Drug Free Workplace Program.docx
+2025-07-10 18:09:34,691 - root - INFO - [FilesTool] Processing file: workspace\Form\Streamform Safety Training Plan.pdf
+2025-07-10 18:09:35,152 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:35,152 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:35,152 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 97718
+2025-07-10 18:09:35,388 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__uiuz0p__input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__uiuz0p_', 'txt']
+2025-07-10 18:09:36,809 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:36,809 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:36,809 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 660016
+2025-07-10 18:09:37,297 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_15noh_bs_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_15noh_bs', 'txt']
+2025-07-10 18:09:42,924 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:42,924 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:42,924 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 788284
+2025-07-10 18:09:43,508 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jqkq0ist_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jqkq0ist', 'txt']
+2025-07-10 18:09:50,388 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:50,389 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:50,389 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 846184
+2025-07-10 18:09:50,999 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4i6v5qxp_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4i6v5qxp', 'txt']
+2025-07-10 18:09:54,799 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 330641
+2025-07-10 18:09:55,178 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aww9osge_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aww9osge', 'txt']
+2025-07-10 18:09:57,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:09:57,306 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:09:57,307 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 379377
+2025-07-10 18:09:57,730 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ihyym83f_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ihyym83f', 'txt']
+2025-07-10 18:10:00,000 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:00,000 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:00,000 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:10:00,280 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0lvi43mr_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0lvi43mr', 'txt']
+2025-07-10 18:10:01,677 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:01,677 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:01,677 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 709031
+2025-07-10 18:10:02,366 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kkms77jy_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kkms77jy', 'txt']
+2025-07-10 18:10:05,498 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:05,499 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:05,499 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 381781
+2025-07-10 18:10:05,924 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_oz61xhby_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_oz61xhby', 'txt']
+2025-07-10 18:10:07,638 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:07,639 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:07,639 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 639899
+2025-07-10 18:10:08,195 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_we4upe2c_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_we4upe2c', 'txt']
+2025-07-10 18:10:11,667 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:11,668 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:11,668 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 691386
+2025-07-10 18:10:12,283 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_412cwjic_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_412cwjic', 'txt']
+2025-07-10 18:10:15,413 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:15,413 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:15,414 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 531750
+2025-07-10 18:10:15,824 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hrkiimcu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hrkiimcu', 'txt']
+2025-07-10 18:10:19,049 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:19,050 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:19,050 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 190176
+2025-07-10 18:10:19,459 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_d4qhkonk_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_d4qhkonk', 'txt']
+2025-07-10 18:10:22,299 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:22,301 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:22,301 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 643904
+2025-07-10 18:10:22,792 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dfipsh78_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dfipsh78', 'txt']
+2025-07-10 18:10:25,962 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:25,963 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:25,963 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 597823
+2025-07-10 18:10:26,738 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_h_ikzuu3_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_h_ikzuu3', 'txt']
+2025-07-10 18:10:30,119 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:30,119 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:30,119 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 326069
+2025-07-10 18:10:30,625 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nrf0tkzr_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nrf0tkzr', 'txt']
+2025-07-10 18:10:32,730 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:32,730 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:32,731 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:10:33,034 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_2jcmmvi4_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_2jcmmvi4', 'txt']
+2025-07-10 18:10:34,416 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:34,416 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:34,416 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 704731
+2025-07-10 18:10:35,056 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1m1mc42y_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1m1mc42y', 'txt']
+2025-07-10 18:10:38,499 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:38,500 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:38,500 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 471480
+2025-07-10 18:10:39,025 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gbxz0owf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gbxz0owf', 'txt']
+2025-07-10 18:10:41,906 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:41,907 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:41,907 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 377753
+2025-07-10 18:10:42,302 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yqsjrmbq_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yqsjrmbq', 'txt']
+2025-07-10 18:10:44,981 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:44,982 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:44,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 706612
+2025-07-10 18:10:45,619 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1ckh4h2n_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1ckh4h2n', 'txt']
+2025-07-10 18:10:50,720 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:50,720 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:50,720 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 578013
+2025-07-10 18:10:51,176 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_q5xa9gj5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_q5xa9gj5', 'txt']
+2025-07-10 18:10:53,684 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:53,684 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:53,685 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:10:53,955 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uhovikqo_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uhovikqo', 'txt']
+2025-07-10 18:10:55,345 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:10:55,345 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:10:55,346 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 751990
+2025-07-10 18:10:55,882 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6s3bp5vu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6s3bp5vu', 'txt']
+2025-07-10 18:11:00,168 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:00,169 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:00,169 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 448979
+2025-07-10 18:11:00,646 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kmbjytl9_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kmbjytl9', 'txt']
+2025-07-10 18:11:04,957 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:04,958 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:04,958 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 461843
+2025-07-10 18:11:05,482 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fjeloxun_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fjeloxun', 'txt']
+2025-07-10 18:11:08,212 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:08,213 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:08,213 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 498562
+2025-07-10 18:11:08,419 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1zpctn1r_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1zpctn1r', 'txt']
+2025-07-10 18:11:10,729 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:10,730 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:10,730 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 624901
+2025-07-10 18:11:10,950 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yftchaok_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yftchaok', 'txt']
+2025-07-10 18:11:13,251 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:13,251 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:13,251 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 595664
+2025-07-10 18:11:13,485 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gwalbk8y_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_gwalbk8y', 'txt']
+2025-07-10 18:11:16,256 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:16,256 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:16,256 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 565956
+2025-07-10 18:11:16,475 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_r9dduetx_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_r9dduetx', 'txt']
+2025-07-10 18:11:19,032 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:19,032 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:19,032 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 355563
+2025-07-10 18:11:19,302 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cso_69zi_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cso_69zi', 'txt']
+2025-07-10 18:11:21,124 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:21,124 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:21,124 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 428528
+2025-07-10 18:11:21,296 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyukp5gs_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyukp5gs', 'txt']
+2025-07-10 18:11:23,234 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:23,235 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:23,235 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:11:23,361 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6wsngh8x_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6wsngh8x', 'txt']
+2025-07-10 18:11:24,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:24,240 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:24,240 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 598448
+2025-07-10 18:11:24,473 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5vfmqcmf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5vfmqcmf', 'txt']
+2025-07-10 18:11:27,190 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:27,190 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:27,190 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 591908
+2025-07-10 18:11:27,505 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyr6xec5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyr6xec5', 'txt']
+2025-07-10 18:11:30,135 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:30,135 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:30,135 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 416504
+2025-07-10 18:11:30,371 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0yxy34vb_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0yxy34vb', 'txt']
+2025-07-10 18:11:32,130 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:32,131 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:32,131 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 287717
+2025-07-10 18:11:32,290 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mztg6xta_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mztg6xta', 'txt']
+2025-07-10 18:11:33,922 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:33,923 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:33,923 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 580887
+2025-07-10 18:11:34,175 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_taoz4tgj_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_taoz4tgj', 'txt']
+2025-07-10 18:11:36,370 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:36,370 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:36,370 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 618862
+2025-07-10 18:11:36,626 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aj9tj52t_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_aj9tj52t', 'txt']
+2025-07-10 18:11:39,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:39,232 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:39,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 263053
+2025-07-10 18:11:39,389 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qxs2eayl_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qxs2eayl', 'txt']
+2025-07-10 18:11:40,848 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:40,848 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:40,848 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 345611
+2025-07-10 18:11:41,005 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_naljfsja_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_naljfsja', 'txt']
+2025-07-10 18:11:42,672 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:42,672 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:42,672 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 662483
+2025-07-10 18:11:42,903 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8prgnedv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8prgnedv', 'txt']
+2025-07-10 18:11:45,601 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:45,601 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:45,601 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 818985
+2025-07-10 18:11:45,840 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hs6_zm97_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hs6_zm97', 'txt']
+2025-07-10 18:11:49,105 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:49,105 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:49,105 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 305963
+2025-07-10 18:11:49,294 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4_l3j51d_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4_l3j51d', 'txt']
+2025-07-10 18:11:50,831 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:50,831 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:50,831 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 508607
+2025-07-10 18:11:51,022 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qktv3ou7_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qktv3ou7', 'txt']
+2025-07-10 18:11:52,965 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:52,965 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:52,965 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 696004
+2025-07-10 18:11:53,249 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uzp6o0le_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_uzp6o0le', 'txt']
+2025-07-10 18:11:56,084 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:56,084 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:56,084 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 625280
+2025-07-10 18:11:56,287 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l04fn228_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l04fn228', 'txt']
+2025-07-10 18:11:58,512 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:11:58,513 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:11:58,513 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 744074
+2025-07-10 18:11:58,775 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_620ntki4_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_620ntki4', 'txt']
+2025-07-10 18:12:02,118 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:02,119 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:02,119 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 704714
+2025-07-10 18:12:02,359 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3plhscb__input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3plhscb_', 'txt']
+2025-07-10 18:12:05,485 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:05,486 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:05,486 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 427426
+2025-07-10 18:12:05,683 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ak_7tmjs_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ak_7tmjs', 'txt']
+2025-07-10 18:12:07,616 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:07,617 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:07,617 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 612287
+2025-07-10 18:12:07,841 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__dc8ohch_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__dc8ohch', 'txt']
+2025-07-10 18:12:10,633 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:10,633 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:10,633 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 678406
+2025-07-10 18:12:10,925 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_esk3cmd7_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_esk3cmd7', 'txt']
+2025-07-10 18:12:13,814 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:13,815 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:13,815 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 410232
+2025-07-10 18:12:14,011 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3v_gkyps_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3v_gkyps', 'txt']
+2025-07-10 18:12:16,067 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:16,068 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:16,068 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 241429
+2025-07-10 18:12:16,231 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4sr6zyar_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4sr6zyar', 'txt']
+2025-07-10 18:12:17,688 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:17,689 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:17,689 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:12:17,840 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_411t9jga_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_411t9jga', 'txt']
+2025-07-10 18:12:18,768 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:18,768 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:18,768 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 540515
+2025-07-10 18:12:18,982 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_eysa732r_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_eysa732r', 'txt']
+2025-07-10 18:12:21,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:21,306 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:21,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 646501
+2025-07-10 18:12:21,537 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lhrc1c97_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lhrc1c97', 'txt']
+2025-07-10 18:12:24,212 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:24,212 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:24,212 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 456242
+2025-07-10 18:12:24,418 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_iiqk0r57_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_iiqk0r57', 'txt']
+2025-07-10 18:12:26,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:26,247 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:26,247 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 672599
+2025-07-10 18:12:26,488 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_k3vtko7d_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_k3vtko7d', 'txt']
+2025-07-10 18:12:29,174 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:29,175 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:29,175 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 672171
+2025-07-10 18:12:29,419 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kxxkse25_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kxxkse25', 'txt']
+2025-07-10 18:12:32,310 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:32,310 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:32,310 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 312191
+2025-07-10 18:12:32,472 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_sahtdl9l_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_sahtdl9l', 'txt']
+2025-07-10 18:12:33,941 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:33,941 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:33,941 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 553278
+2025-07-10 18:12:34,155 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fy2lowyg_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fy2lowyg', 'txt']
+2025-07-10 18:12:36,629 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:36,630 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:36,630 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 574956
+2025-07-10 18:12:36,855 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3a7t4j86_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3a7t4j86', 'txt']
+2025-07-10 18:12:39,181 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:39,181 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:39,181 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 96781
+2025-07-10 18:12:39,313 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6_vwyunh_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6_vwyunh', 'txt']
+2025-07-10 18:12:40,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:40,239 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:40,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-10 18:12:40,345 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qhppeh_s_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_qhppeh_s', 'txt']
+2025-07-10 18:12:41,440 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:41,440 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:41,441 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 683155
+2025-07-10 18:12:41,793 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1ug8hx5n_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1ug8hx5n', 'txt']
+2025-07-10 18:12:44,990 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:44,990 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:44,990 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 466026
+2025-07-10 18:12:45,302 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5hmo1lei_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5hmo1lei', 'txt']
+2025-07-10 18:12:48,265 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:48,266 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:48,266 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 627126
+2025-07-10 18:12:48,552 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pmi6wt3j_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pmi6wt3j', 'txt']
+2025-07-10 18:12:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:53,052 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 638068
+2025-07-10 18:12:53,760 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l595xcld_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l595xcld', 'txt']
+2025-07-10 18:12:59,383 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:12:59,383 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:12:59,384 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 289567
+2025-07-10 18:12:59,807 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__dk3ymr0_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__dk3ymr0', 'txt']
+2025-07-10 18:13:02,040 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:02,041 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:02,041 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 641899
+2025-07-10 18:13:02,726 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_94fvu17q_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_94fvu17q', 'txt']
+2025-07-10 18:13:06,890 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:06,892 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:06,892 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 630561
+2025-07-10 18:13:07,502 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0b2yns5s_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0b2yns5s', 'txt']
+2025-07-10 18:13:12,015 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:12,016 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:12,016 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 658327
+2025-07-10 18:13:12,621 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pxli1j3i_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pxli1j3i', 'txt']
+2025-07-10 18:13:16,079 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:16,079 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:16,080 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 336989
+2025-07-10 18:13:16,544 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wmalsx_p_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wmalsx_p', 'txt']
+2025-07-10 18:13:18,854 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:18,854 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:18,854 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 590757
+2025-07-10 18:13:19,466 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l35cfgqr_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_l35cfgqr', 'txt']
+2025-07-10 18:13:22,515 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:22,515 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:22,515 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 599228
+2025-07-10 18:13:23,116 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_50evjya1_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_50evjya1', 'txt']
+2025-07-10 18:13:26,713 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:26,713 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:26,713 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 621363
+2025-07-10 18:13:27,264 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_etjxxm2l_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_etjxxm2l', 'txt']
+2025-07-10 18:13:30,474 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:30,474 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:30,474 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 527751
+2025-07-10 18:13:31,024 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_f55hnyb5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_f55hnyb5', 'txt']
+2025-07-10 18:13:34,386 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:34,387 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:34,387 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 686340
+2025-07-10 18:13:35,034 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nz7mt_nn_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_nz7mt_nn', 'txt']
+2025-07-10 18:13:39,756 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:39,757 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:39,757 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 1047483
+2025-07-10 18:13:40,377 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pm_lu5mn_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_pm_lu5mn', 'txt']
+2025-07-10 18:13:45,256 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:45,256 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:45,256 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 579993
+2025-07-10 18:13:45,843 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_689ngmgb_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_689ngmgb', 'txt']
+2025-07-10 18:13:49,020 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:49,021 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:49,021 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 703627
+2025-07-10 18:13:49,666 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b42ng6is_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b42ng6is', 'txt']
+2025-07-10 18:13:53,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:53,304 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:53,304 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 645641
+2025-07-10 18:13:53,921 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9a32fa0a_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9a32fa0a', 'txt']
+2025-07-10 18:13:59,715 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:13:59,719 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:13:59,719 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 714249
+2025-07-10 18:14:00,130 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_revl2_0o_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_revl2_0o', 'txt']
+2025-07-10 18:14:03,552 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:03,552 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:03,552 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 553728
+2025-07-10 18:14:03,801 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_v3_9jy6a_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_v3_9jy6a', 'txt']
+2025-07-10 18:14:06,389 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:06,389 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:06,390 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 653971
+2025-07-10 18:14:07,127 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_tz6vj29e_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_tz6vj29e', 'txt']
+2025-07-10 18:14:11,442 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:11,442 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:11,442 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 385111
+2025-07-10 18:14:11,665 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_x9d2efj9_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_x9d2efj9', 'txt']
+2025-07-10 18:14:13,375 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:13,376 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:13,376 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 601877
+2025-07-10 18:14:13,663 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_vhqhvxpq_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_vhqhvxpq', 'txt']
+2025-07-10 18:14:15,912 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:15,912 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:15,912 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 155022
+2025-07-10 18:14:16,067 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xoakvw1u_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xoakvw1u', 'txt']
+2025-07-10 18:14:17,066 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:17,066 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:17,066 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 612603
+2025-07-10 18:14:17,336 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ygefrtdm_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ygefrtdm', 'txt']
+2025-07-10 18:14:19,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:19,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:19,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 587246
+2025-07-10 18:14:19,815 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__n2ui8x3_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__n2ui8x3', 'txt']
+2025-07-10 18:14:21,890 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:21,890 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:21,890 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 383914
+2025-07-10 18:14:22,089 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_g7pbe7kf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_g7pbe7kf', 'txt']
+2025-07-10 18:14:23,659 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:23,659 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:23,659 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 391771
+2025-07-10 18:14:23,851 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yu_6361u_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yu_6361u', 'txt']
+2025-07-10 18:14:25,452 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:25,452 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:25,452 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 325030
+2025-07-10 18:14:25,622 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_j7d8whkt_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_j7d8whkt', 'txt']
+2025-07-10 18:14:27,366 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:27,366 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:27,366 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 647202
+2025-07-10 18:14:27,642 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b5aoi2zz_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_b5aoi2zz', 'txt']
+2025-07-10 18:14:31,120 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:31,121 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:31,121 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 672818
+2025-07-10 18:14:31,737 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dh4l1ybr_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_dh4l1ybr', 'txt']
+2025-07-10 18:14:35,043 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:35,043 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:35,043 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 728590
+2025-07-10 18:14:35,288 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ukab3bjv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ukab3bjv', 'txt']
+2025-07-10 18:14:37,964 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:37,965 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:37,965 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 644355
+2025-07-10 18:14:38,215 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5ej8zrcu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5ej8zrcu', 'txt']
+2025-07-10 18:14:40,722 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:40,722 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:40,722 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 689516
+2025-07-10 18:14:40,950 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ui1de8pb_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ui1de8pb', 'txt']
+2025-07-10 18:14:43,130 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Form\Streamform Safety Training Plan.pdf
+2025-07-10 18:14:43,237 - root - INFO - [FilesTool] Processing file: workspace\Form\Streamform_Written_Safety_Program.pdf
+2025-07-10 18:14:44,143 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:44,143 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:44,143 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 104527
+2025-07-10 18:14:44,303 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fje_hqqf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fje_hqqf', 'txt']
+2025-07-10 18:14:45,143 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:45,144 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:45,144 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 152470
+2025-07-10 18:14:45,287 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__0rtjlnf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__0rtjlnf', 'txt']
+2025-07-10 18:14:46,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:46,320 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:46,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 351514
+2025-07-10 18:14:46,483 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_rqqv2tzq_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_rqqv2tzq', 'txt']
+2025-07-10 18:14:47,921 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:47,921 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:47,921 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 374348
+2025-07-10 18:14:48,112 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mkzwhtb6_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mkzwhtb6', 'txt']
+2025-07-10 18:14:49,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:49,687 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:49,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 422856
+2025-07-10 18:14:49,851 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mq9qsure_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_mq9qsure', 'txt']
+2025-07-10 18:14:51,508 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:51,508 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:51,508 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 382104
+2025-07-10 18:14:51,680 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_sa_e29gn_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_sa_e29gn', 'txt']
+2025-07-10 18:14:53,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:53,233 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:53,233 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 262906
+2025-07-10 18:14:53,419 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_q3jnmw4y_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_q3jnmw4y', 'txt']
+2025-07-10 18:14:54,580 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:54,580 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:54,581 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 310508
+2025-07-10 18:14:54,745 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fffeffhm_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_fffeffhm', 'txt']
+2025-07-10 18:14:55,988 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:55,988 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:55,988 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 304174
+2025-07-10 18:14:56,144 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3l9rmx7h_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3l9rmx7h', 'txt']
+2025-07-10 18:14:57,585 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:57,585 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:57,585 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 354662
+2025-07-10 18:14:57,779 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xbybqquv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xbybqquv', 'txt']
+2025-07-10 18:14:59,285 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:14:59,285 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:14:59,285 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 338175
+2025-07-10 18:14:59,457 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ci87dvrx_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ci87dvrx', 'txt']
+2025-07-10 18:15:00,899 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:00,899 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:00,899 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 352100
+2025-07-10 18:15:01,080 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_r9ei5h2v_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_r9ei5h2v', 'txt']
+2025-07-10 18:15:02,646 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:02,646 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:02,646 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 381340
+2025-07-10 18:15:02,822 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_bn_lclb7_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_bn_lclb7', 'txt']
+2025-07-10 18:15:04,378 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:04,378 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:04,378 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 384943
+2025-07-10 18:15:04,575 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_acswqojt_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_acswqojt', 'txt']
+2025-07-10 18:15:06,081 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:06,081 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:06,081 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 292504
+2025-07-10 18:15:06,260 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4nc1_nr2_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4nc1_nr2', 'txt']
+2025-07-10 18:15:07,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:07,481 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:07,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 306308
+2025-07-10 18:15:07,648 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jtysdzxb_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jtysdzxb', 'txt']
+2025-07-10 18:15:08,999 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:09,000 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:09,000 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 339938
+2025-07-10 18:15:09,183 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hajavh54_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_hajavh54', 'txt']
+2025-07-10 18:15:10,582 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:10,582 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:10,582 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 373848
+2025-07-10 18:15:10,750 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lkad4zmv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lkad4zmv', 'txt']
+2025-07-10 18:15:12,267 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:12,268 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:12,268 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 287543
+2025-07-10 18:15:12,424 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_c3iyq254_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_c3iyq254', 'txt']
+2025-07-10 18:15:13,695 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:13,695 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:13,696 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 297387
+2025-07-10 18:15:13,848 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_z1knjg2u_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_z1knjg2u', 'txt']
+2025-07-10 18:15:15,188 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:15,188 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:15,188 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324470
+2025-07-10 18:15:15,669 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m14s0jh5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m14s0jh5', 'txt']
+2025-07-10 18:15:18,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:18,232 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:18,232 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 297551
+2025-07-10 18:15:18,453 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6lsg5mmu_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6lsg5mmu', 'txt']
+2025-07-10 18:15:19,762 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:19,762 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:19,763 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 161085
+2025-07-10 18:15:19,929 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9r72onqo_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9r72onqo', 'txt']
+2025-07-10 18:15:20,929 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:20,929 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:20,929 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 282697
+2025-07-10 18:15:21,104 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9vv2g1_d_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9vv2g1_d', 'txt']
+2025-07-10 18:15:22,416 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:22,416 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:22,416 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 278499
+2025-07-10 18:15:22,575 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__vocs04h_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__vocs04h', 'txt']
+2025-07-10 18:15:24,356 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:24,356 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:24,356 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 295234
+2025-07-10 18:15:24,541 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_atiebxai_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_atiebxai', 'txt']
+2025-07-10 18:15:25,821 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:25,821 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:25,821 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 323574
+2025-07-10 18:15:26,007 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lsrtabr6_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_lsrtabr6', 'txt']
+2025-07-10 18:15:27,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:27,482 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:27,482 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 355885
+2025-07-10 18:15:27,658 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m8utzpc9_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m8utzpc9', 'txt']
+2025-07-10 18:15:29,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:29,383 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:29,383 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 341509
+2025-07-10 18:15:29,580 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_izw21ajt_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_izw21ajt', 'txt']
+2025-07-10 18:15:31,201 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:31,201 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:31,201 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 170650
+2025-07-10 18:15:31,348 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ocr8hy9a_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ocr8hy9a', 'txt']
+2025-07-10 18:15:32,566 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:32,567 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:32,567 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 319947
+2025-07-10 18:15:32,813 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1gwyt9yv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1gwyt9yv', 'txt']
+2025-07-10 18:15:34,406 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:34,406 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:34,406 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 261784
+2025-07-10 18:15:34,567 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_oy1nhfii_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_oy1nhfii', 'txt']
+2025-07-10 18:15:35,897 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:35,897 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:35,897 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 266938
+2025-07-10 18:15:36,061 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_umy_npgk_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_umy_npgk', 'txt']
+2025-07-10 18:15:37,370 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:37,370 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:37,371 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 240588
+2025-07-10 18:15:37,545 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5cj4w0md_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5cj4w0md', 'txt']
+2025-07-10 18:15:39,219 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:39,220 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:39,220 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 316485
+2025-07-10 18:15:40,054 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_loq6v_5e_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_loq6v_5e', 'txt']
+2025-07-10 18:15:41,699 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:41,699 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:41,699 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 277647
+2025-07-10 18:15:41,867 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7j5wnuev_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7j5wnuev', 'txt']
+2025-07-10 18:15:43,068 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:43,069 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:43,069 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 331574
+2025-07-10 18:15:43,228 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_x1e7xzy5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_x1e7xzy5', 'txt']
+2025-07-10 18:15:44,686 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:44,686 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:44,686 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 341232
+2025-07-10 18:15:44,840 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_i1uehrd8_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_i1uehrd8', 'txt']
+2025-07-10 18:15:46,175 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:46,176 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:46,176 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 337627
+2025-07-10 18:15:46,389 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kjsyhsh5_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_kjsyhsh5', 'txt']
+2025-07-10 18:15:48,945 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:48,945 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:48,945 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 353153
+2025-07-10 18:15:49,109 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__pd9qpqe_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__pd9qpqe', 'txt']
+2025-07-10 18:15:50,883 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:50,884 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:50,884 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 314628
+2025-07-10 18:15:51,080 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1aozrl2j_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1aozrl2j', 'txt']
+2025-07-10 18:15:53,447 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:53,447 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:53,447 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 335125
+2025-07-10 18:15:53,696 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0ri9zcrv_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0ri9zcrv', 'txt']
+2025-07-10 18:15:55,468 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:55,469 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:55,469 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 361849
+2025-07-10 18:15:55,654 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4oasz8da_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4oasz8da', 'txt']
+2025-07-10 18:15:57,228 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:57,229 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:57,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 320244
+2025-07-10 18:15:57,389 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cks690bl_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cks690bl', 'txt']
+2025-07-10 18:15:58,840 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:15:58,840 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:15:58,840 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 354665
+2025-07-10 18:15:59,035 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_rvibr2ka_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_rvibr2ka', 'txt']
+2025-07-10 18:16:01,114 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:16:01,114 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:16:01,114 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 295882
+2025-07-10 18:16:01,454 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_bzd58w3g_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_bzd58w3g', 'txt']
+2025-07-10 18:16:03,390 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-10 18:16:03,391 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-10 18:16:03,391 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 245990
+2025-07-10 18:16:03,573 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_zb6afmd9_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_zb6afmd9', 'txt']
+2025-07-10 18:16:04,729 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Form\Streamform_Written_Safety_Program.pdf
+2025-07-10 18:16:04,736 - root - INFO - [FilesTool] Processing file: workspace\images\screenshot.png
+2025-07-10 18:16:04,736 - root - WARNING - [FilesTool] Unsupported file type: .png
+2025-07-10 18:16:04,737 - root - INFO - [FilesTool] Completed extraction from folder: workspace
+2025-07-10 18:16:04,739 - root - INFO - [ToolRunner] Tool execution complete.
+2025-07-10 18:16:04,858 - root - INFO - [Planner] Planning next action...
+2025-07-10 18:16:04,956 - root - DEBUG - [ReasoningEngine] Planning prompt:
+
+You are an autonomous agent responsible for deciding the next best action.
+
+User Request:
+"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""
+
+Based on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.
+
+Respond ONLY in valid JSON with:
+- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]
+- tool_call (object): includes "action" and optional "params"
+
+
+Examples:
+
+User Prompt: "Use the documents to answer the pre-qualification questionnaire"
+Tool Plan:
+{
+  "next_action": "read_documents",
+  "tool_call": {
+    "action": "read_documents"
+  }
+}
+
+User Prompt: "Check what's on the screen and extract text"
+Tool Plan:
+{
+  "next_action": "screenshot_and_analyze",
+  "tool_call": {
+    "action": "screenshot_and_analyze"
+  }
+}
+
+User Prompt: "Search for latest AML KYC compliance laws"
+Tool Plan:
+{
+  "next_action": "web_search",
+  "tool_call": {
+    "action": "web_search",
+    "params": {
+      "query": "latest AML KYC compliance 2024"
+    }
+  }
+}
+
+User Prompt: "Run shell to list current directory"
+Tool Plan:
+{
+  "next_action": "run_shell_command",
+  "tool_call": {
+    "action": "run_shell_command",
+    "params": {
+      "command": "ls -la"
+    }
+  }
+}
+
+Important: DO NOT include explanations or markdown. Only valid JSON.
+Answer:
+
+2025-07-10 18:16:05,058 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-133d4ef0-fa3c-4884-891d-b8d78146ea00', 'json_data': {'messages': [{'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}, {'content': '\nYou are an autonomous agent responsible for deciding the next best action.\n\nUser Request:\n"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""\n\nBased on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.\n\nRespond ONLY in valid JSON with:\n- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]\n- tool_call (object): includes "action" and optional "params"\n\n\nExamples:\n\nUser Prompt: "Use the documents to answer the pre-qualification questionnaire"\nTool Plan:\n{\n  "next_action": "read_documents",\n  "tool_call": {\n    "action": "read_documents"\n  }\n}\n\nUser Prompt: "Check what\'s on the screen and extract text"\nTool Plan:\n{\n  "next_action": "screenshot_and_analyze",\n  "tool_call": {\n    "action": "screenshot_and_analyze"\n  }\n}\n\nUser Prompt: "Search for latest AML KYC compliance laws"\nTool Plan:\n{\n  "next_action": "web_search",\n  "tool_call": {\n    "action": "web_search",\n    "params": {\n      "query": "latest AML KYC compliance 2024"\n    }\n  }\n}\n\nUser Prompt: "Run shell to list current directory"\nTool Plan:\n{\n  "next_action": "run_shell_command",\n  "tool_call": {\n    "action": "run_shell_command",\n    "params": {\n      "command": "ls -la"\n    }\n  }\n}\n\nImportant: DO NOT include explanations or markdown. Only valid JSON.\nAnswer:\n', 'role': 'user'}, {'content': 'Planned next action: read_documents', 'role': 'assistant'}, {'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}, {'content': '\nYou are an autonomous agent responsible for deciding the next best action.\n\nUser Request:\n"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""\n\nBased on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.\n\nRespond ONLY in valid JSON with:\n- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]\n- tool_call (object): includes "action" and optional "params"\n\n\nExamples:\n\nUser Prompt: "Use the documents to answer the pre-qualification questionnaire"\nTool Plan:\n{\n  "next_action": "read_documents",\n  "tool_call": {\n    "action": "read_documents"\n  }\n}\n\nUser Prompt: "Check what\'s on the screen and extract text"\nTool Plan:\n{\n  "next_action": "screenshot_and_analyze",\n  "tool_call": {\n    "action": "screenshot_and_analyze"\n  }\n}\n\nUser Prompt: "Search for latest AML KYC compliance laws"\nTool Plan:\n{\n  "next_action": "web_search",\n  "tool_call": {\n    "action": "web_search",\n    "params": {\n      "query": "latest AML KYC compliance 2024"\n    }\n  }\n}\n\nUser Prompt: "Run shell to list current directory"\nTool Plan:\n{\n  "next_action": "run_shell_command",\n  "tool_call": {\n    "action": "run_shell_command",\n    "params": {\n      "command": "ls -la"\n    }\n  }\n}\n\nImportant: DO NOT include explanations or markdown. Only valid JSON.\nAnswer:\n', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.3}}
+2025-07-10 18:16:05,085 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-10 18:16:05,098 - httpcore.connection - DEBUG - close.started
+2025-07-10 18:16:05,119 - httpcore.connection - DEBUG - close.complete
+2025-07-10 18:16:05,121 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-10 18:16:05,218 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001B9C52B2950>
+2025-07-10 18:16:05,219 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001B9C4E21880> server_hostname='api.openai.com' timeout=None
+2025-07-10 18:16:05,336 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001B9C7B59B50>
+2025-07-10 18:16:05,339 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-10 18:16:05,344 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-10 18:16:05,344 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-10 18:16:05,344 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-10 18:16:05,345 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-10 18:16:06,967 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 10 Jul 2025 12:46:08 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'407'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'412'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'50000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'49999204'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_2c52c02d270686e3bb15883dc69eba21'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d0297ebb5679f4-HYD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-10 18:16:06,969 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 18:16:06,970 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-10 18:16:06,972 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-10 18:16:06,972 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-10 18:16:06,972 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-10 18:16:06,973 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Thu, 10 Jul 2025 12:46:08 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '407', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '412', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '50000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '49999204', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_2c52c02d270686e3bb15883dc69eba21', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d0297ebb5679f4-HYD', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-10 18:16:06,973 - openai._base_client - DEBUG - request_id: req_2c52c02d270686e3bb15883dc69eba21
+2025-07-10 18:16:06,984 - root - DEBUG - [ReasoningEngine] LLM response: {
+  "next_action": "read_documents",
+  "tool_call": {
+    "action": "read_documents"
+  }
+}
+2025-07-10 18:16:06,984 - root - INFO - [Planner] Tool 'read_documents' already executed. Moving to synthesis.
+2025-07-10 18:16:06,985 - root - INFO - [Planner] Next: none | Tool call: {'action': 'none'}
+2025-07-10 18:16:06,987 - root - INFO - [Synthesizer] Generating response...
+2025-07-10 18:16:06,998 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-091f0e00-594e-4ceb-9f5a-c6c15dddfe4b', 'json_data': {'messages': [{'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}, {'content': '\nYou are an autonomous agent responsible for deciding the next best action.\n\nUser Request:\n"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""\n\nBased on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.\n\nRespond ONLY in valid JSON with:\n- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]\n- tool_call (object): includes "action" and optional "params"\n\n\nExamples:\n\nUser Prompt: "Use the documents to answer the pre-qualification questionnaire"\nTool Plan:\n{\n  "next_action": "read_documents",\n  "tool_call": {\n    "action": "read_documents"\n  }\n}\n\nUser Prompt: "Check what\'s on the screen and extract text"\nTool Plan:\n{\n  "next_action": "screenshot_and_analyze",\n  "tool_call": {\n    "action": "screenshot_and_analyze"\n  }\n}\n\nUser Prompt: "Search for latest AML KYC compliance laws"\nTool Plan:\n{\n  "next_action": "web_search",\n  "tool_call": {\n    "action": "web_search",\n    "params": {\n      "query": "latest AML KYC compliance 2024"\n    }\n  }\n}\n\nUser Prompt: "Run shell to list current directory"\nTool Plan:\n{\n  "next_action": "run_shell_command",\n  "tool_call": {\n    "action": "run_shell_command",\n    "params": {\n      "command": "ls -la"\n    }\n  }\n}\n\nImportant: DO NOT include explanations or markdown. Only valid JSON.\nAnswer:\n', 'role': 'user'}, {'content': 'Planned next action: read_documents', 'role': 'assistant'}, {'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}, {'content': '\nYou are an autonomous agent responsible for deciding the next best action.\n\nUser Request:\n"""Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."""\n\nBased on prior context and tool capabilities, decide what tool should be used next and generate a structured plan.\n\nRespond ONLY in valid JSON with:\n- next_action (string): one of [read_documents, screenshot_and_analyze, web_search, run_code, run_shell_command, none]\n- tool_call (object): includes "action" and optional "params"\n\n\nExamples:\n\nUser Prompt: "Use the documents to answer the pre-qualification questionnaire"\nTool Plan:\n{\n  "next_action": "read_documents",\n  "tool_call": {\n    "action": "read_documents"\n  }\n}\n\nUser Prompt: "Check what\'s on the screen and extract text"\nTool Plan:\n{\n  "next_action": "screenshot_and_analyze",\n  "tool_call": {\n    "action": "screenshot_and_analyze"\n  }\n}\n\nUser Prompt: "Search for latest AML KYC compliance laws"\nTool Plan:\n{\n  "next_action": "web_search",\n  "tool_call": {\n    "action": "web_search",\n    "params": {\n      "query": "latest AML KYC compliance 2024"\n    }\n  }\n}\n\nUser Prompt: "Run shell to list current directory"\nTool Plan:\n{\n  "next_action": "run_shell_command",\n  "tool_call": {\n    "action": "run_shell_command",\n    "params": {\n      "command": "ls -la"\n    }\n  }\n}\n\nImportant: DO NOT include explanations or markdown. Only valid JSON.\nAnswer:\n', 'role': 'user'}, {'content': 'Planned next action: none', 'role': 'assistant'}, {'content': '\nYou have received the following user instruction:\n\n"Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."\n\nFrom the context below, which includes the user\'s documents and tool outputs, extract and answer **each question** from the pre-qualification form. Provide each Q&A pair clearly.\n\nRespond only with a clean XML containing:\n<questionnaire>\n  <question>...</question>\n  <answer>...</answer>\n  ...\n</questionnaire>\n\nContext:\n[{\'file\': \'workspace\\\\Form\\\\.DS_Store\', \'content\': \'Unsupported file type: \'}, {\'file\': \'workspace\\\\Form\\\\Insurance Policies.docx\', \'content\': "Insurance and Risk Management Policy Document\\nStreamform Contractors, LLC\\nHouston, Texas\\n1. Introduction\\nAt Streamform Contractors, we are committed to minimizing risks and protecting our people, property, projects, and clients. Our insurance strategy is a crucial component of our risk management system and ensures that we maintain compliance with regulatory requirements, client expectations, and industry best practices.\\n2. Overview of Insurance Coverage\\nStreamform Contractors maintains comprehensive insurance coverage through industry-leading insurance providers. Our standard policy types include:\\nAutomobile Liability Insurance\\nWorkers\' Compensation Insurance\\nGeneral Liability Insurance\\nUmbrella/Excess Liability Insurance\\nProfessional Liability (E&O) Insurance\\nBuilder’s Risk Insurance\\nContractor’s Equipment Insurance\\n3. Insurance\n', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.2}}
+2025-07-10 18:16:07,000 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-10 18:16:07,001 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-10 18:16:07,002 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-10 18:16:07,002 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-10 18:16:07,003 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-10 18:16:07,003 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-10 18:16:09,698 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Thu, 10 Jul 2025 12:46:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1451'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1457'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'50000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'49998821'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'1ms'), (b'x-request-id', b'req_899d78daa17981892535a8dcfbb5ef53'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95d029890bb579f4-HYD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-10 18:16:09,699 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 18:16:09,699 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-10 18:16:09,701 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-10 18:16:09,701 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-10 18:16:09,701 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-10 18:16:09,702 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Thu, 10 Jul 2025 12:46:11 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '1451', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1457', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '50000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '49998821', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '1ms', 'x-request-id': 'req_899d78daa17981892535a8dcfbb5ef53', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95d029890bb579f4-HYD', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-10 18:16:09,702 - openai._base_client - DEBUG - request_id: req_899d78daa17981892535a8dcfbb5ef53
+2025-07-10 18:16:09,704 - root - INFO - [Synthesizer] Final response ready.
+2025-07-10 18:16:09,711 - root - INFO - [GeneralAgent] === END RUN ===

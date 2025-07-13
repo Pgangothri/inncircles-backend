@@ -1,0 +1,74 @@
+2025-07-11 16:36:51,502 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-11 16:36:51,503 - root - DEBUG - [FilesTool] Found 11 files in workspace/Knowledge Base
+2025-07-11 16:36:51,503 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Insurance Policies.docx
+2025-07-11 16:36:51,503 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:51,504 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-11 16:36:51,765 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:36:51,765 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:36:51,821 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 496173
+2025-07-11 16:36:52,003 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_26zkohnf_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_26zkohnf', 'txt']
+2025-07-11 16:36:53,338 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-11 16:36:53,342 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Deminimus.docx
+2025-07-11 16:36:53,342 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,342 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-11 16:36:53,342 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,343 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2021.docx
+2025-07-11 16:36:53,343 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,343 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2022.docx
+2025-07-11 16:36:53,343 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,343 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2023.docx
+2025-07-11 16:36:53,343 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,344 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-11 16:36:53,344 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,344 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-11 16:36:53,344 - root - ERROR - [FilesTool] DOCX extract failed: 'Document' object has no attribute 'paragraphs'
+2025-07-11 16:36:53,344 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Safety Training Plan.pdf
+2025-07-11 16:36:53,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:36:53,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:36:53,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 97718
+2025-07-11 16:36:53,689 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1fqqiucc_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1fqqiucc', 'txt']
+2025-07-11 16:36:54,516 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:36:54,516 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:36:54,517 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 660016
+2025-07-11 16:36:54,703 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5r7nma8i_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5r7nma8i', 'txt']
+2025-07-11 16:36:58,691 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:36:58,692 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:36:58,692 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 788284
+2025-07-11 16:36:58,889 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xkedcsz__input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xkedcsz_', 'txt']
+2025-07-11 16:37:03,753 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:03,753 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:03,753 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 846184
+2025-07-11 16:37:03,962 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4_dlbnvg_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_4_dlbnvg', 'txt']
+2025-07-11 16:37:07,236 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:07,236 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:07,236 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 330641
+2025-07-11 16:37:07,378 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0k5gmqku_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_0k5gmqku', 'txt']
+2025-07-11 16:37:08,822 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:08,822 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:08,822 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 379377
+2025-07-11 16:37:08,981 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5txu77z0_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_5txu77z0', 'txt']
+2025-07-11 16:37:10,681 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:10,681 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:10,681 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-11 16:37:10,823 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_v0j2ic5r_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_v0j2ic5r', 'txt']
+2025-07-11 16:37:11,705 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:11,705 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:11,705 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 709031
+2025-07-11 16:37:11,906 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_87vp2nw8_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_87vp2nw8', 'txt']
+2025-07-11 16:37:14,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:14,977 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:14,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 381781
+2025-07-11 16:37:15,125 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wiahk598_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_wiahk598', 'txt']
+2025-07-11 16:37:16,378 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:16,378 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:16,378 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 639899
+2025-07-11 16:37:16,613 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_n8tvfggz_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_n8tvfggz', 'txt']
+2025-07-11 16:37:19,175 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:19,175 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:19,175 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 691386
+2025-07-11 16:37:19,251 - root - ERROR - [FilesTool] PDF extract failed: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ebzyyfoz_input.PNG'
+2025-07-11 16:37:19,256 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform_Written_Safety_Program.pdf
+2025-07-11 16:37:19,573 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-11 16:37:19,573 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-11 16:37:19,573 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 104527
+2025-07-11 16:37:19,669 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_orf_3w_i_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_orf_3w_i', 'txt']

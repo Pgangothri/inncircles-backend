@@ -1,0 +1,82 @@
+2025-07-12 11:12:16,569 - root - INFO - [Planner] Planning task subtasks...
+2025-07-12 11:12:16,570 - root - INFO - [PlanningAgent] Generating structured plan...
+2025-07-12 11:12:16,573 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a8d7aee7-56ab-40b3-877e-7a6cc59719ec', 'json_data': {'messages': [{'content': '\nYou are a planning agent. You receive a user task and must decompose it into subtasks,\neach assigned to one of the following agents: DocumentAgent, QuestionAgent, or RetrievalAgent.\n\nYour job is to return a plan as JSON with this structure:\n{\n  "objective": "...",\n  "subtasks": [\n    {"description": "...", "assigned_agent": "DocumentAgent"},\n    {"description": "...", "assigned_agent": "QuestionAgent"},\n    {"description": "...", "assigned_agent": "RetrievalAgent"}\n  ]\n}\nMake sure it\'s valid JSON and uses only the listed agents.\n', 'role': 'system'}, {'content': 'Prompt: Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-12 11:12:16,600 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-12 11:12:16,601 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-12 11:12:16,888 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BD195BFE90>
+2025-07-12 11:12:16,889 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BD0B6D1490> server_hostname='api.openai.com' timeout=None
+2025-07-12 11:12:16,999 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BD195BEE10>
+2025-07-12 11:12:16,999 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-12 11:12:16,999 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-12 11:12:16,999 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-12 11:12:17,000 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-12 11:12:17,000 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-12 11:12:19,928 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 12 Jul 2025 05:42:20 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1823'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1827'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999829'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_fbdd2f3f83ed8e3297385553a05e0814'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=sEzFFZu_woYJjs7LeQCRbRYUU1UexWhR8GPfbWbwDZc-1752298940-1.0.1.1-bm994K9zrOvpnEwl24AYEIAYm6o49nZF3oYb8iLi8n7tcnVAMStbxbaXnMLQAHJ4yXd3jcuCWXmz4oPD_Eq1fvQCrWNnd9QxvxjGLJ.Vccc; path=/; expires=Sat, 12-Jul-25 06:12:20 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=xZizHl2FyRqAPPx7hG3LskxWfE5nqi03jZJv_hm_WyQ-1752298940814-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95de376b2ef0937d-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-12 11:12:19,930 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 11:12:19,931 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-12 11:12:19,931 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-12 11:12:19,931 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-12 11:12:19,932 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-12 11:12:19,932 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 12 Jul 2025 05:42:20 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1823'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1827'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999829'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_fbdd2f3f83ed8e3297385553a05e0814'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=sEzFFZu_woYJjs7LeQCRbRYUU1UexWhR8GPfbWbwDZc-1752298940-1.0.1.1-bm994K9zrOvpnEwl24AYEIAYm6o49nZF3oYb8iLi8n7tcnVAMStbxbaXnMLQAHJ4yXd3jcuCWXmz4oPD_Eq1fvQCrWNnd9QxvxjGLJ.Vccc; path=/; expires=Sat, 12-Jul-25 06:12:20 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=xZizHl2FyRqAPPx7hG3LskxWfE5nqi03jZJv_hm_WyQ-1752298940814-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95de376b2ef0937d-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-12 11:12:19,932 - openai._base_client - DEBUG - request_id: req_fbdd2f3f83ed8e3297385553a05e0814
+2025-07-12 11:12:19,938 - root - INFO - [PlanningAgent] Plan generated:
+```json
+{
+  "objective": "Answer all questions in the pre-qualification questionnaire using information from the provided files.",
+  "subtasks": [
+    {
+      "description": "Identify and extract all questions from the pre-qualification questionnaire form.",
+      "assigned_agent": "DocumentAgent"
+    },
+    {
+      "description": "Retrieve relevant information from the rest of the files that can be used to answer the questions identified in the pre-qualification questionnaire.",
+      "assigned_agent": "RetrievalAgent"
+    },
+    {
+      "description": "Answer each question in the pre-qualification questionnaire using the retrieved information.",
+      "assigned_agent": "QuestionAgent"
+    }
+  ]
+}
+```
+2025-07-12 11:12:19,939 - root - ERROR - [PlanningAgent] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 40, in planning_agent
+    raw_plan = json.loads(plan_json)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-07-12 11:12:19,945 - root - ERROR - [Planner] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 40, in planning_agent
+    raw_plan = json.loads(plan_json)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 79, in planner
+    plan = planning_agent(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\src\agent\planning_agent.py", line 45, in planning_agent
+    raise RuntimeError(f"Planning failed: {e}")
+RuntimeError: Planning failed: Expecting value: line 1 column 1 (char 0)
+2025-07-12 11:12:19,951 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-12 11:12:20,314 - httpcore.connection - DEBUG - close.started
+2025-07-12 11:12:20,315 - httpcore.connection - DEBUG - close.complete

@@ -1,0 +1,130 @@
+2025-07-12 13:23:33,878 - root - INFO - [Planner] Planning task subtasks...
+2025-07-12 13:23:33,879 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-12 13:23:33,886 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-935c76c8-a517-4e70-adb7-9fcd70efbd98', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent: Extract knowledge from documents\n- ReadAgent: Read and extract information from documents\n- QuestionAgent: Extract questions using OCR/LLM\n- RetrievalAgent: Answer questions using document context (RAG)\n- ShellAgent: Execute system shell commands\n- VisionAgent: Analyze screenshots/images\n- CodeAgent: Run code in a sandbox\n- ComputerAgent: Interact with the desktop (e.g., take screenshots)\n\nRULES:\n- Use only the exact agent names listed above (case-sensitive).\n- Do NOT invent new agents.\n- Do NOT change spelling.\n- Return subtasks in valid JSON as follows:\n\nJSON FORMAT:\n{\n  "objective": "...",\n  "subtasks": [\n    {"description": "...", "assigned_agent": "DocumentAgent"},\n    {"description": "...", "assigned_agent": "RetrievalAgent"}\n  ]\n}\n', 'role': 'system'}, {'content': 'Prompt: Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-12 13:23:33,911 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-12 13:23:33,911 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-12 13:23:34,603 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001FBCC40DF50>
+2025-07-12 13:23:34,604 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001FBCBD1DAC0> server_hostname='api.openai.com' timeout=None
+2025-07-12 13:23:34,943 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001FBCC43F290>
+2025-07-12 13:23:34,944 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-12 13:23:34,944 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-12 13:23:34,944 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-12 13:23:34,945 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-12 13:23:34,945 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-12 13:23:37,266 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 12 Jul 2025 07:53:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1235'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1237'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999734'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_2a63cae26fbc434d102cc739d0aa0125'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=52Yg5UbFhpptJJtC03DbNhPj_xbY28z.OpBH86azcew-1752306817-1.0.1.1-eqhYk2PB3rnlYarYD1ZD1hLwwzP13rEw25PRyzqz8SR.TW6e1MgE4PE1Zuo79g8v5hIgmrwYfDSdqX.nd0x3qP48N64uAumMGSeT68QqzxQ; path=/; expires=Sat, 12-Jul-25 08:23:37 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=I_o2KKQls2xYjZ31m_WPbfZzLRpe_K58TltShX.guhU-1752306817526-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95def7bf6b107f5e-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-12 13:23:37,269 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-12 13:23:37,270 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-12 13:23:37,271 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-12 13:23:37,271 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-12 13:23:37,271 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-12 13:23:37,271 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 12 Jul 2025 07:53:37 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1235'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1237'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999734'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_2a63cae26fbc434d102cc739d0aa0125'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=52Yg5UbFhpptJJtC03DbNhPj_xbY28z.OpBH86azcew-1752306817-1.0.1.1-eqhYk2PB3rnlYarYD1ZD1hLwwzP13rEw25PRyzqz8SR.TW6e1MgE4PE1Zuo79g8v5hIgmrwYfDSdqX.nd0x3qP48N64uAumMGSeT68QqzxQ; path=/; expires=Sat, 12-Jul-25 08:23:37 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=I_o2KKQls2xYjZ31m_WPbfZzLRpe_K58TltShX.guhU-1752306817526-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95def7bf6b107f5e-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-12 13:23:37,272 - openai._base_client - DEBUG - request_id: req_2a63cae26fbc434d102cc739d0aa0125
+2025-07-12 13:23:37,295 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Answer all questions in the pre-qual questionnaire using information from the rest of the files.",
+  "subtasks": [
+    {"description": "Extract questions from the pre-qual questionnaire using OCR/LLM.", "assigned_agent": "QuestionAgent"},
+    {"description": "Read and extract information from the rest of the files to find answers to the questions.", "assigned_agent": "ReadAgent"},
+    {"description": "Answer the extracted questions using the information from the files.", "assigned_agent": "RetrievalAgent"}
+  ]
+}
+2025-07-12 13:23:37,302 - root - INFO - [PlanningAgent] Final Plan:
+{
+  "objective": "Answer all questions in the pre-qual questionnaire using information from the rest of the files.",
+  "subtasks": [
+    {
+      "description": "Read and extract information from the rest of the files to find answers to the questions.",
+      "assigned_agent": "ReadAgent"
+    },
+    {
+      "description": "Extract questions from the pre-qual questionnaire using OCR/LLM.",
+      "assigned_agent": "QuestionAgent"
+    },
+    {
+      "description": "Answer the extracted questions using the information from the files.",
+      "assigned_agent": "RetrievalAgent"
+    }
+  ]
+}
+2025-07-12 13:23:37,306 - root - INFO - [Orchestrator] Executing step 1/3: AgentEnum.ReadAgent
+2025-07-12 13:23:37,317 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-12 13:23:37,319 - root - DEBUG - [FilesTool] Found 14 files in workspace
+2025-07-12 13:23:37,320 - root - INFO - [FilesTool] Processing file: workspace\Form\.DS_Store
+2025-07-12 13:23:37,320 - root - WARNING - [FilesTool] Unsupported file type: 
+2025-07-12 13:23:37,321 - root - INFO - [FilesTool] Processing file: workspace\Form\Pre Qual Form.pdf
+2025-07-12 13:23:38,818 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:38,818 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:38,818 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 333421
+2025-07-12 13:23:39,321 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7wqt3u04_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_7wqt3u04', 'txt']
+2025-07-12 13:23:44,149 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:44,150 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:44,150 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 556068
+2025-07-12 13:23:44,915 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6w2oz7ap_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_6w2oz7ap', 'txt']
+2025-07-12 13:23:47,337 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:47,338 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:47,338 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 468022
+2025-07-12 13:23:47,540 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_h8qdumye_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_h8qdumye', 'txt']
+2025-07-12 13:23:49,857 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:49,858 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:49,858 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 324827
+2025-07-12 13:23:50,085 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ofgtd6nb_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ofgtd6nb', 'txt']
+2025-07-12 13:23:51,821 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:51,821 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:51,821 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 236720
+2025-07-12 13:23:51,968 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m_xqzmvj_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m_xqzmvj', 'txt']
+2025-07-12 13:23:53,451 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:53,451 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:53,451 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 210495
+2025-07-12 13:23:53,604 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jx4zce1r_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_jx4zce1r', 'txt']
+2025-07-12 13:23:54,738 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Form\Pre Qual Form.pdf
+2025-07-12 13:23:54,745 - root - INFO - [FilesTool] Processing file: workspace\images\screenshot.png
+2025-07-12 13:23:54,745 - root - WARNING - [FilesTool] Unsupported file type: .png
+2025-07-12 13:23:54,746 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Insurance Policies.docx
+2025-07-12 13:23:54,992 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Insurance Policies.docx
+2025-07-12 13:23:54,992 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-12 13:23:55,332 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:55,333 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:55,333 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 496173
+2025-07-12 13:23:55,579 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyh5vncp_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_cyh5vncp', 'txt']
+2025-07-12 13:23:57,123 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace\Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-12 13:23:57,126 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\OSHA Deminimus.docx
+2025-07-12 13:23:57,170 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\OSHA Deminimus.docx
+2025-07-12 13:23:57,170 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-12 13:23:57,216 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-12 13:23:57,217 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Safety Report 2021.docx
+2025-07-12 13:23:57,309 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Safety Report 2021.docx
+2025-07-12 13:23:57,309 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Safety Report 2022.docx
+2025-07-12 13:23:57,370 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Safety Report 2022.docx
+2025-07-12 13:23:57,370 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Safety Report 2023.docx
+2025-07-12 13:23:57,412 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Safety Report 2023.docx
+2025-07-12 13:23:57,413 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-12 13:23:57,519 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-12 13:23:57,519 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-12 13:23:57,609 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace\Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-12 13:23:57,609 - root - INFO - [FilesTool] Processing file: workspace\Knowledge Base\Streamform Safety Training Plan.pdf
+2025-07-12 13:23:57,949 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:57,950 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:57,950 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 97718
+2025-07-12 13:23:58,100 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_21dv994t_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_21dv994t', 'txt']
+2025-07-12 13:23:59,065 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:23:59,065 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:23:59,065 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 660016
+2025-07-12 13:23:59,300 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xy957hw7_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_xy957hw7', 'txt']
+2025-07-12 13:24:04,262 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:24:04,262 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:24:04,262 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 788284
+2025-07-12 13:24:04,517 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8_83gvrm_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_8_83gvrm', 'txt']
+2025-07-12 13:24:09,735 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:24:09,735 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:24:09,735 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 846184
+2025-07-12 13:24:10,006 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3jwk2cly_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3jwk2cly', 'txt']
+2025-07-12 13:24:13,914 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:24:13,914 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:24:13,914 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 330641
+2025-07-12 13:24:14,109 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9fa7xxdg_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_9fa7xxdg', 'txt']
+2025-07-12 13:24:15,952 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-12 13:24:15,952 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-12 13:24:15,952 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 379377
+2025-07-12 13:24:16,136 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1a0wblvj_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_1a0wblvj', 'txt']
+2025-07-12 13:24:17,245 - httpcore.connection - DEBUG - close.started
+2025-07-12 13:24:17,246 - httpcore.connection - DEBUG - close.complete

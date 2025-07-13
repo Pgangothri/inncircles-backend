@@ -1,0 +1,40 @@
+2025-07-12 10:28:42,540 - root - INFO - [ComputerUseTool] Initialized. Output dir: workspace/images
+2025-07-12 10:28:42,544 - root - INFO - [ShellTool] Initialized | OS: Windows | Workdir: workspace | Timeout: 20s
+2025-07-12 10:28:42,544 - root - INFO - [VisionTool] Initialized with output_format: base64
+2025-07-12 10:28:42,544 - root - INFO - [WebSearch] Initialized with max_results=5
+2025-07-12 10:28:42,550 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-12 10:28:42,589 - root - INFO - [ToolRunner] Executing tool: computer_use
+2025-07-12 10:28:42,589 - root - ERROR - [ToolRunner] Tool computer_use failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 112, in call_tool
+    result = tool_fn(prompt) if tool != "run_form_qa" else tool_fn(state)
+             ^^^^^^^^^^^^^^^
+TypeError: ComputerUseTool.take_screenshot() takes 1 positional argument but 2 were given
+2025-07-12 10:28:42,607 - root - INFO - [ToolRunner] Executing tool: computer_use
+2025-07-12 10:28:42,607 - root - ERROR - [ToolRunner] Tool computer_use failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 112, in call_tool
+    result = tool_fn(prompt) if tool != "run_form_qa" else tool_fn(state)
+             ^^^^^^^^^^^^^^^
+TypeError: ComputerUseTool.take_screenshot() takes 1 positional argument but 2 were given
+2025-07-12 10:28:42,610 - root - INFO - [ToolRunner] Executing tool: computer_use
+2025-07-12 10:28:42,610 - root - ERROR - [ToolRunner] Tool computer_use failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 112, in call_tool
+    result = tool_fn(prompt) if tool != "run_form_qa" else tool_fn(state)
+             ^^^^^^^^^^^^^^^
+TypeError: ComputerUseTool.take_screenshot() takes 1 positional argument but 2 were given
+2025-07-12 10:28:42,611 - root - INFO - [ToolRunner] Executing tool: computer_use
+2025-07-12 10:28:42,612 - root - ERROR - [ToolRunner] Tool computer_use failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 112, in call_tool
+    result = tool_fn(prompt) if tool != "run_form_qa" else tool_fn(state)
+             ^^^^^^^^^^^^^^^
+TypeError: ComputerUseTool.take_screenshot() takes 1 positional argument but 2 were given
+2025-07-12 10:28:42,613 - root - INFO - [ToolRunner] Executing tool: computer_use
+2025-07-12 10:28:42,613 - root - ERROR - [ToolRunner] Tool computer_use failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 112, in call_tool
+    result = tool_fn(prompt) if tool != "run_form_qa" else tool_fn(state)
+             ^^^^^^^^^^^^^^^
+TypeError: ComputerUseTool.take_screenshot() takes 1 positional argument but 2 were given

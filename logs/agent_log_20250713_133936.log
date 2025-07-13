@@ -1,0 +1,176 @@
+2025-07-13 13:39:55,362 - root - INFO - [Planner] Planning task subtasks...
+2025-07-13 13:39:55,363 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-13 13:39:55,364 - root - INFO - [MemoryManager] Using existing memory file at workspace/memory.json
+2025-07-13 13:39:55,366 - root - INFO - [MemoryManager] Retrieving relevant memories for query: 
+2025-07-13 13:39:55,389 - root - INFO - [MemoryManager] Loaded memory history
+2025-07-13 13:39:55,390 - root - INFO - [MemoryManager] Retrieved 3 relevant memories
+2025-07-13 13:39:55,416 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-f909adf4-24f3-47c8-a844-b0e7c08e41cf', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent:  Read and extract information from Knowledge Base documents. \n- ReadAgent: Just getting an text from documents.\n- QuestionAgent: Extract questions using OCR/LLM from PDFs or DOCX files.\n- RetrievalAgent: Answer questions using document context (RAG).\n- ShellAgent: Execute shell commands (e.g., terminal).\n- VisionAgent: Analyze screenshots/images using OCR.\n- CodeAgent: Run code snippets in Python.\n- ComputerAgent: Interact with the desktop (e.g., take screenshots).\n\nRULES:\n- Use ONLY the exact agent names listed above (case-sensitive).\n- DO NOT invent new agents.\n- Return your response in the following JSON format:\n\n{\n  "objective": "...",\n  "subtasks": [\n    { "description": "...", "assigned_agent": "..." },\n    ...\n  ]\n}\n\n\n[Context from memory:]\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take screenshot and analyze, then run form QA.\nPlan: {\'goal\': \'Take a screenshot, analyze it, and run form QA.\', \'subtasks\': [{\'step\': 1, \'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'computer_agent\'}, {\'step\': 3, \'description\': \'Run form QA on the extracted text.\', \'assigned_agent\': \'question_agent\'}, {\'step\': 2, \'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'vision_agent\'}]}\nAnswers: []\n', 'role': 'system'}, {'content': '', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-13 13:39:55,466 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-13 13:39:55,466 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-13 13:39:56,225 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000019ED30DF1D0>
+2025-07-13 13:39:56,225 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000019ED29CDFD0> server_hostname='api.openai.com' timeout=None
+2025-07-13 13:39:56,497 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000019ED3104510>
+2025-07-13 13:39:56,498 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-13 13:39:56,499 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-13 13:39:56,499 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-13 13:39:56,500 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-13 13:39:56,500 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-13 13:39:58,343 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 13 Jul 2025 08:10:00 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'884'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'889'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999478'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'1ms'), (b'x-request-id', b'req_554641668258d45c678789afe6db5419'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=F4hQHRosAUs1l0xpWwsnkQKPq_8oRcbAniRlNbpOq4s-1752394200-1.0.1.1-3iQHeDL2BmKe2qSJe2NYlZm.bfpZNv1iIZeTH0ipdpBi12Q_w2fmK7qmYp7BCXL0eODWP5qNRG4lLoAPlhtJnlbLuoT32q_JrlB3or46_6Q; path=/; expires=Sun, 13-Jul-25 08:40:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=VLpPNjZ3DMnJLWWlY.8zb7nMdn8pTR2ZvHuv0qxapwQ-1752394200514-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95e74d1efe397f67-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-13 13:39:58,347 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-13 13:39:58,348 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-13 13:39:58,350 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-13 13:39:58,350 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-13 13:39:58,350 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-13 13:39:58,351 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sun, 13 Jul 2025 08:10:00 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '884'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '889'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999478'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '1ms'), ('x-request-id', 'req_554641668258d45c678789afe6db5419'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=F4hQHRosAUs1l0xpWwsnkQKPq_8oRcbAniRlNbpOq4s-1752394200-1.0.1.1-3iQHeDL2BmKe2qSJe2NYlZm.bfpZNv1iIZeTH0ipdpBi12Q_w2fmK7qmYp7BCXL0eODWP5qNRG4lLoAPlhtJnlbLuoT32q_JrlB3or46_6Q; path=/; expires=Sun, 13-Jul-25 08:40:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=VLpPNjZ3DMnJLWWlY.8zb7nMdn8pTR2ZvHuv0qxapwQ-1752394200514-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95e74d1efe397f67-MAA'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-13 13:39:58,351 - openai._base_client - DEBUG - request_id: req_554641668258d45c678789afe6db5419
+2025-07-13 13:39:58,422 - root - INFO - [PlanningAgent] Raw LLM response:
+I'm here to help! Could you please provide me with the task you would like to accomplish?
+2025-07-13 13:39:58,423 - root - ERROR - [PlanningAgent] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 95, in planning_agent
+    raw_plan = json.loads(plan_json_str)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-07-13 13:39:58,457 - root - ERROR - [Planner] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 95, in planning_agent
+    raw_plan = json.loads(plan_json_str)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pgang\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 163, in planner
+    plan = planning_agent(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\src\agent\planning_agent.py", line 123, in planning_agent
+    raise RuntimeError(f"Planning failed: {e}")
+RuntimeError: Planning failed: Expecting value: line 1 column 1 (char 0)
+2025-07-13 13:39:58,468 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-13 13:39:58,562 - root - INFO - [Planner] Planning task subtasks...
+2025-07-13 13:39:58,563 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-13 13:39:58,565 - root - INFO - [MemoryManager] Using existing memory file at workspace/memory.json
+2025-07-13 13:39:58,565 - root - INFO - [MemoryManager] Retrieving relevant memories for query: Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.
+2025-07-13 13:39:58,567 - root - INFO - [MemoryManager] Loaded memory history
+2025-07-13 13:39:58,568 - root - INFO - [MemoryManager] Retrieved 3 relevant memories
+2025-07-13 13:39:58,572 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-94d9c813-3481-4ef8-88d5-c27ed278bee3', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent:  Read and extract information from Knowledge Base documents. \n- ReadAgent: Just getting an text from documents.\n- QuestionAgent: Extract questions using OCR/LLM from PDFs or DOCX files.\n- RetrievalAgent: Answer questions using document context (RAG).\n- ShellAgent: Execute shell commands (e.g., terminal).\n- VisionAgent: Analyze screenshots/images using OCR.\n- CodeAgent: Run code snippets in Python.\n- ComputerAgent: Interact with the desktop (e.g., take screenshots).\n\nRULES:\n- Use ONLY the exact agent names listed above (case-sensitive).\n- DO NOT invent new agents.\n- Return your response in the following JSON format:\n\n{\n  "objective": "...",\n  "subtasks": [\n    { "description": "...", "assigned_agent": "..." },\n    ...\n  ]\n}\n\n\n[Context from memory:]\n---\nPrevious Task: Take screenshot and analyze, then run form QA.\nPlan: {\'goal\': \'Take a screenshot, analyze it, and run form QA.\', \'subtasks\': [{\'step\': 1, \'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'computer_agent\'}, {\'step\': 3, \'description\': \'Run form QA on the extracted text.\', \'assigned_agent\': \'question_agent\'}, {\'step\': 2, \'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'vision_agent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n', 'role': 'system'}, {'content': 'Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-13 13:39:58,574 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-13 13:39:58,575 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-13 13:39:58,577 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-13 13:39:58,578 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-13 13:39:58,579 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-13 13:39:58,579 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-13 13:40:01,858 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 13 Jul 2025 08:10:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'2109'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'2111'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999447'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'1ms'), (b'x-request-id', b'req_d833f8ad19bd6daa0c795580c772cd8d'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95e74d2b8a337f67-MAA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-13 13:40:01,859 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-13 13:40:01,860 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-13 13:40:01,861 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-13 13:40:01,862 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-13 13:40:01,862 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-13 13:40:01,862 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Sun, 13 Jul 2025 08:10:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'inncircles-poqwbs', 'openai-processing-ms': '2109', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '2111', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '30000000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '29999447', 'x-ratelimit-reset-requests': '6ms', 'x-ratelimit-reset-tokens': '1ms', 'x-request-id': 'req_d833f8ad19bd6daa0c795580c772cd8d', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '95e74d2b8a337f67-MAA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-07-13 13:40:01,863 - openai._base_client - DEBUG - request_id: req_d833f8ad19bd6daa0c795580c772cd8d
+2025-07-13 13:40:01,864 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Answer all questions from the pre-qual questionnaire using information from the rest of the files.",
+  "subtasks": [
+    { "description": "Extract questions from the pre-qual questionnaire form using OCR/LLM.", "assigned_agent": "QuestionAgent" },
+    { "description": "Read and extract information from the rest of the files to gather context.", "assigned_agent": "DocumentAgent" },
+    { "description": "Answer the extracted questions using the gathered document context.", "assigned_agent": "RetrievalAgent" }
+  ]
+}
+2025-07-13 13:40:01,868 - root - INFO - [PlanningAgent] Final Plan:
+{
+  "goal": "Answer all questions from the pre-qual questionnaire using information from the rest of the files.",
+  "subtasks": [
+    {
+      "step": 1,
+      "description": "Read and extract information from the rest of the files to gather context.",
+      "assigned_agent": "document_agent"
+    },
+    {
+      "step": 0,
+      "description": "Extract questions from the pre-qual questionnaire form using OCR/LLM.",
+      "assigned_agent": "question_agent"
+    },
+    {
+      "step": 2,
+      "description": "Answer the extracted questions using the gathered document context.",
+      "assigned_agent": "retrieval_agent"
+    }
+  ]
+}
+2025-07-13 13:40:01,880 - root - INFO - [Orchestrator] Executing step 1/3: AgentEnum.DocumentAgent
+2025-07-13 13:40:01,883 - root - INFO - [DocumentAgent] Loading documents...
+2025-07-13 13:40:01,903 - root - INFO - [FilesTool] Initialized with base path: workspace
+2025-07-13 13:40:01,906 - root - DEBUG - [FilesTool] Found 11 files in workspace/Knowledge Base
+2025-07-13 13:40:01,907 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Insurance Policies.docx
+2025-07-13 13:40:02,136 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Insurance Policies.docx
+2025-07-13 13:40:02,136 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-13 13:40:03,234 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:03,234 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:03,235 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 496173
+2025-07-13 13:40:03,662 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_f8anz84b_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_f8anz84b', 'txt']
+2025-07-13 13:40:06,753 - root - DEBUG - [FilesTool] Extracted PDF OCR text from workspace/Knowledge Base\ISO 9001 Streamform Contractors.pdf
+2025-07-13 13:40:06,839 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Deminimus.docx
+2025-07-13 13:40:06,885 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\OSHA Deminimus.docx
+2025-07-13 13:40:06,886 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-13 13:40:06,912 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\OSHA Serious Violation 2.docx
+2025-07-13 13:40:06,912 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2021.docx
+2025-07-13 13:40:06,953 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2021.docx
+2025-07-13 13:40:06,953 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2022.docx
+2025-07-13 13:40:07,015 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2022.docx
+2025-07-13 13:40:07,016 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Safety Report 2023.docx
+2025-07-13 13:40:07,078 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Safety Report 2023.docx
+2025-07-13 13:40:07,079 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-13 13:40:07,193 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Streamform Contractors Company Profile Latestt.docx
+2025-07-13 13:40:07,193 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-13 13:40:07,225 - root - DEBUG - [FilesTool] Extracted DOCX text from workspace/Knowledge Base\Streamform Drug Free Workplace Program.docx
+2025-07-13 13:40:07,226 - root - INFO - [FilesTool] Processing file: workspace/Knowledge Base\Streamform Safety Training Plan.pdf
+2025-07-13 13:40:07,678 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:07,679 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:07,679 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 97718
+2025-07-13 13:40:07,830 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yivsnwoz_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_yivsnwoz', 'txt']
+2025-07-13 13:40:08,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:08,977 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:08,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 660016
+2025-07-13 13:40:09,256 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__z2k26ym_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__z2k26ym', 'txt']
+2025-07-13 13:40:14,974 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:14,974 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:14,974 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 788284
+2025-07-13 13:40:15,255 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_g3c6y451_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_g3c6y451', 'txt']
+2025-07-13 13:40:21,549 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:21,549 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:21,549 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 846184
+2025-07-13 13:40:21,930 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3qvcx0xn_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_3qvcx0xn', 'txt']
+2025-07-13 13:40:26,559 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:26,559 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:26,559 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 330641
+2025-07-13 13:40:26,801 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_enys9qux_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_enys9qux', 'txt']
+2025-07-13 13:40:29,050 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:29,050 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:29,050 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 379377
+2025-07-13 13:40:29,292 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__fqj_gml_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess__fqj_gml', 'txt']
+2025-07-13 13:40:32,111 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:32,111 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:32,111 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 33085
+2025-07-13 13:40:32,301 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ua1tamag_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_ua1tamag', 'txt']
+2025-07-13 13:40:33,432 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-07-13 13:40:33,433 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 41 9
+2025-07-13 13:40:33,433 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 62 709031
+2025-07-13 13:40:33,787 - pytesseract - DEBUG - ['C:\\Program Files\\Tesseract-OCR\\tesseract.exe', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m9mf_w5n_input.PNG', 'C:\\Users\\pgang\\AppData\\Local\\Temp\\tess_m9mf_w5n', 'txt']

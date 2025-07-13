@@ -1,0 +1,10 @@
+2025-07-10 13:24:56,881 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): app.daytona.io:443
+2025-07-10 13:25:39,068 - urllib3.util.retry - DEBUG - Incremented Retry for (url='/api/sandbox'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2025-07-10 13:25:39,069 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000020015553AD0>, 'Connection to app.daytona.io timed out. (connect timeout=60.0)')': /api/sandbox
+2025-07-10 13:25:39,070 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): app.daytona.io:443
+2025-07-10 13:26:21,280 - urllib3.util.retry - DEBUG - Incremented Retry for (url='/api/sandbox'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2025-07-10 13:26:21,281 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000200172827D0>, 'Connection to app.daytona.io timed out. (connect timeout=60.0)')': /api/sandbox
+2025-07-10 13:26:21,281 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): app.daytona.io:443
+2025-07-10 13:26:21,298 - urllib3.util.retry - DEBUG - Incremented Retry for (url='/api/sandbox'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2025-07-10 13:26:21,299 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000200172832D0>: Failed to resolve 'app.daytona.io' ([Errno 11001] getaddrinfo failed)")': /api/sandbox
+2025-07-10 13:26:21,304 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): app.daytona.io:443

@@ -1,0 +1,109 @@
+2025-07-13 13:00:28,679 - root - INFO - [Planner] Planning task subtasks...
+2025-07-13 13:00:28,680 - root - INFO - [PlanningAgent] Generating plan from prompt...
+2025-07-13 13:00:28,680 - root - INFO - [MemoryManager] Using existing memory file at workspace/memory.json
+2025-07-13 13:00:28,680 - root - INFO - [MemoryManager] Retrieving relevant memories for query: Take Screenshot and analyze
+2025-07-13 13:00:28,715 - root - INFO - [MemoryManager] Loaded memory history
+2025-07-13 13:00:28,716 - root - INFO - [MemoryManager] Retrieved 3 relevant memories
+2025-07-13 13:00:28,729 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-169d64ae-72db-4543-bbac-6880c0343e6e', 'json_data': {'messages': [{'content': '\nYou are a planning agent responsible for decomposing user tasks into subtasks.\nEach subtask must be assigned to ONE of the following specialized agents:\n\n- DocumentAgent:  Read and extract information from Knowledge Base documents. \n- ReadAgent: Just read file content.\n- QuestionAgent: Extract questions using OCR/LLM from PDFs or DOCX files.\n- RetrievalAgent: Answer questions using document context (RAG).\n- ShellAgent: Execute shell commands (e.g., terminal).\n- VisionAgent: Analyze screenshots/images using OCR.\n- CodeAgent: Run code snippets in Python.\n- ComputerAgent: Interact with the desktop (e.g., take screenshots).\n\nRULES:\n- Use ONLY the exact agent names listed above (case-sensitive).\n- DO NOT invent new agents.\n- Return your response in the following JSON format:\n\n{\n  "objective": "...",\n  "subtasks": [\n    { "description": "...", "assigned_agent": "..." },\n    ...\n  ]\n}\n\n\n[Context from memory:]\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take Screenshot and analyze\nPlan: {\'objective\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'ComputerAgent\'}, {\'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'VisionAgent\'}]}\nAnswers: []\n\n---\nPrevious Task: Take screenshot and analyze\nPlan: {\'goal\': \'Take a screenshot and analyze it.\', \'subtasks\': [{\'step\': 1, \'description\': \'Take a screenshot of the current desktop.\', \'assigned_agent\': \'computer_agent\'}, {\'step\': 2, \'description\': \'Analyze the screenshot using OCR to extract text.\', \'assigned_agent\': \'vision_agent\'}]}\nAnswers: []\n', 'role': 'system'}, {'content': 'Take Screenshot and analyze', 'role': 'user'}], 'model': 'gpt-4o', 'stream': False, 'temperature': 0.0}}
+2025-07-13 13:00:28,762 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-07-13 13:00:28,763 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-07-13 13:00:29,177 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000253B3172D50>
+2025-07-13 13:00:29,178 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000253B1AC0320> server_hostname='api.openai.com' timeout=None
+2025-07-13 13:00:29,243 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000253B318BE10>
+2025-07-13 13:00:29,243 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-07-13 13:00:29,244 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-07-13 13:00:29,244 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-07-13 13:00:29,244 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-07-13 13:00:29,244 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-07-13 13:00:31,851 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 13 Jul 2025 07:30:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'inncircles-poqwbs'), (b'openai-processing-ms', b'1129'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1134'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'30000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'29999507'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_92363c18937784ec0e993ab996ea30c5'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=fBsTXvHafLFYByF8ZvIso2JJIpIydqGNLZFqOCXLvJg-1752391833-1.0.1.1-Esgx5wdnhvmYmKNBFr0Jb6nS1xoiNKunOJ1.FqObYjh1B03m7nzHwJBRI4TWQ8Oy1pCOW5SSED.sIbr0QudgDi1q0C6qhQ4_PlLfitbJzT0; path=/; expires=Sun, 13-Jul-25 08:00:33 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=g7YFww75_SlzbyLxRESQMpOgP0PWbc4dRIa.Noq9mKc-1752391833955-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95e713531c273d28-BLR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-07-13 13:00:31,854 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-13 13:00:31,856 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-07-13 13:00:31,858 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-07-13 13:00:31,858 - httpcore.http11 - DEBUG - response_closed.started
+2025-07-13 13:00:31,858 - httpcore.http11 - DEBUG - response_closed.complete
+2025-07-13 13:00:31,859 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sun, 13 Jul 2025 07:30:33 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'inncircles-poqwbs'), ('openai-processing-ms', '1129'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '1134'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '30000000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '29999507'), ('x-ratelimit-reset-requests', '6ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_92363c18937784ec0e993ab996ea30c5'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=fBsTXvHafLFYByF8ZvIso2JJIpIydqGNLZFqOCXLvJg-1752391833-1.0.1.1-Esgx5wdnhvmYmKNBFr0Jb6nS1xoiNKunOJ1.FqObYjh1B03m7nzHwJBRI4TWQ8Oy1pCOW5SSED.sIbr0QudgDi1q0C6qhQ4_PlLfitbJzT0; path=/; expires=Sun, 13-Jul-25 08:00:33 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=g7YFww75_SlzbyLxRESQMpOgP0PWbc4dRIa.Noq9mKc-1752391833955-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '95e713531c273d28-BLR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-07-13 13:00:31,859 - openai._base_client - DEBUG - request_id: req_92363c18937784ec0e993ab996ea30c5
+2025-07-13 13:00:31,946 - root - INFO - [PlanningAgent] Raw LLM response:
+{
+  "objective": "Take a screenshot and analyze it.",
+  "subtasks": [
+    { "description": "Take a screenshot of the current desktop.", "assigned_agent": "ComputerAgent" },
+    { "description": "Analyze the screenshot using OCR to extract text.", "assigned_agent": "VisionAgent" }
+  ]
+}
+2025-07-13 13:00:31,949 - root - ERROR - [PlanningAgent] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 101, in planning_agent
+    plan = Plan(**raw_plan)
+           ^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for Plan
+goal
+  Field required [type=missing, input_value={'objective': 'Take a scr...agent': 'VisionAgent'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.step
+  Field required [type=missing, input_value={'description': 'Take a s...agent': 'ComputerAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='ComputerAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+subtasks.1.step
+  Field required [type=missing, input_value={'description': 'Analyze ...d_agent': 'VisionAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.1.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='VisionAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+2025-07-13 13:00:32,008 - root - ERROR - [Planner] Planning failed
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\planning_agent.py", line 101, in planning_agent
+    plan = Plan(**raw_plan)
+           ^^^^^^^^^^^^^^^^
+  File "D:\inncircles\venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for Plan
+goal
+  Field required [type=missing, input_value={'objective': 'Take a scr...agent': 'VisionAgent'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.step
+  Field required [type=missing, input_value={'description': 'Take a s...agent': 'ComputerAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='ComputerAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+subtasks.1.step
+  Field required [type=missing, input_value={'description': 'Analyze ...d_agent': 'VisionAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.1.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='VisionAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\inncircles\src\agent\core_agent.py", line 163, in planner
+    plan = planning_agent(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\inncircles\src\agent\planning_agent.py", line 107, in planning_agent
+    raise RuntimeError(f"Planning failed: {e}")
+RuntimeError: Planning failed: 5 validation errors for Plan
+goal
+  Field required [type=missing, input_value={'objective': 'Take a scr...agent': 'VisionAgent'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.step
+  Field required [type=missing, input_value={'description': 'Take a s...agent': 'ComputerAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.0.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='ComputerAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+subtasks.1.step
+  Field required [type=missing, input_value={'description': 'Analyze ...d_agent': 'VisionAgent'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+subtasks.1.assigned_agent
+  Input should be 'document_agent', 'question_agent', 'retrieval_agent', 'read_agent', 'shell_agent', 'vision_agent', 'code_agent' or 'computer_agent' [type=enum, input_value='VisionAgent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/enum
+2025-07-13 13:00:32,011 - root - INFO - [Finalizer] Finalizing agent output...
+2025-07-13 13:00:32,486 - httpcore.connection - DEBUG - close.started
+2025-07-13 13:00:32,488 - httpcore.connection - DEBUG - close.complete
