@@ -5,9 +5,8 @@ from typing import TypedDict, List, Dict, Optional
 from langchain_core.messages import HumanMessage
 from langgraph.graph import StateGraph, END
 from dotenv import load_dotenv
-from enum import Enum
-from typing import List
 from pydantic import BaseModel
+
 # Load env vars & set project root
 load_dotenv()
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
@@ -15,7 +14,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 # === Imports ===
 from src.tools.files_tool import FilesTool
 from src.agent.planning_agent import planning_agent
-from src.agent.plan_schema import Plan,Subtask,AgentEnum
+from src.agent.plan_schema import Plan, Subtask, AgentEnum
 from src.utils.xml_formatter import xml_wrap
 from src.utils.config_loader import load_config
 from src.utils.logging_config import logger
@@ -30,12 +29,6 @@ agent_cfg = load_config("agent_config.yaml")["agent"]
 MAX_STEPS = agent_cfg.get("max_steps", 5)
 OUTPUT_FORMAT = agent_cfg.get("output_format", "xml")
 
-# === Reasoning Builder ===
-def build_reasoning_log(tools_used: list, step_count: int) -> dict:
-    return {
-        "thought": f"Executed {step_count} subtasks: {', '.join(tools_used)}.",
-        "next_action": "end"
-    }
 # === Agent State ===
 class AgentState(TypedDict):
     task_id: str
@@ -48,8 +41,9 @@ class AgentState(TypedDict):
     questions: List[str]
     answers: List[Dict]
     step_index: int
-    image_base64: Optional[str]  # ✅ Stores screenshot from ComputerAgent
+    image_base64: Optional[str]
 
+# === Tool Runners ===
 def run_document_agent(knowledge_base_path: str):
     try:
         logger.info("[DocumentAgent] Loading documents...")
@@ -75,8 +69,6 @@ def run_question_agent(form_path: str):
         logger.exception("[QuestionAgent] Failed to extract questions")
         raise
 
-
-
 def run_retrieval_agent(questions, docs):
     try:
         logger.info("[RetrievalAgent] Building FAISS index and answering questions...")
@@ -89,7 +81,7 @@ def run_retrieval_agent(questions, docs):
         logger.exception("[RetrievalAgent] Failed to retrieve answers")
         raise
 
-# === Tool Orchestrator ===
+# === Orchestrator ===
 def orchestrate_step(state: AgentState) -> AgentState:
     try:
         plan = Plan(**state["plan"])
@@ -99,18 +91,24 @@ def orchestrate_step(state: AgentState) -> AgentState:
 
         if agent == AgentEnum.DocumentAgent:
             state["docs"] = run_document_agent("workspace/Knowledge Base")
+            state["results"].append(f"[DocumentAgent] Loaded {len(state['docs'])} documents")
 
         elif agent == AgentEnum.QuestionAgent:
             state["questions"] = run_question_agent("workspace/Form")
+            state["results"].append(f"[QuestionAgent] Extracted {len(state['questions'])} questions")
 
         elif agent == AgentEnum.RetrievalAgent:
             if not state.get("docs") or not state.get("questions"):
                 raise ValueError("Missing documents or questions for RetrievalAgent")
             state["answers"] = run_retrieval_agent(state["questions"], state["docs"])
+            # Append answers to results for final XML output
+            for a in state["answers"]:
+                state["results"].append(f"Q: {a['question']}\nA: {a['answer']}")
 
         elif agent == AgentEnum.ReadAgent:
             tool = FilesTool()
-            state["questions"] = tool.extract_from_all()
+            extracted = tool.extract_from_all()
+            state["results"].append(f"[ReadAgent] Extracted data: {extracted}")
 
         elif agent == AgentEnum.ShellAgent:
             from src.tools.shell_tool import ShellTool
@@ -132,13 +130,10 @@ def orchestrate_step(state: AgentState) -> AgentState:
         elif agent == AgentEnum.ComputerAgent:
             from src.tools.computer_use import ComputerUseTool
             xml_output = ComputerUseTool().take_screenshot()
-
-            # ✅ Extract base64 image from <data>...</data>
             match = re.search(r"<data>(.*?)</data>", xml_output, re.DOTALL)
             if not match:
                 raise ValueError("Failed to extract image base64 from screenshot XML")
             base64_img = match.group(1).strip()
-
             state["image_base64"] = base64_img
             state["results"].append("Screenshot taken successfully.")
 
@@ -155,41 +150,21 @@ def orchestrate_step(state: AgentState) -> AgentState:
 
     return state
 
-# === Planner Node ===
-def planner(state: AgentState) -> AgentState:
-    try:
-        prompt = state["messages"][-1].content
-        logger.info("[Planner] Planning task subtasks...")
-        plan = planning_agent(prompt)
-        state["plan"] = plan.model_dump()
-        state["status"] = "executing"
-        return state
-    except Exception as e:
-        logger.exception("[Planner] Planning failed")
-        state["status"] = "failed"
-        state["errors"].append(str(e))
-        return state
+# === Planner ===
 def planner(state: AgentState) -> AgentState:
     try:
         prompt = state["messages"][-1].content.strip()
         if not prompt:
             raise ValueError("Empty prompt provided.")
-
         logger.info("[Planner] Planning task subtasks...")
         plan = planning_agent(prompt)
         state["plan"] = plan.model_dump()
         state["status"] = "executing"
-
     except Exception as e:
         logger.exception("[Planner] Planning failed")
-        # Provide fallback plan to avoid breaking finalizer
         state["status"] = "failed"
-        state["plan"] = {
-            "goal": "Planning failed due to error.",
-            "subtasks": []
-        }
+        state["plan"] = {"goal": "Planning failed due to error.", "subtasks": []}
         state["errors"].append(f"Planning error: {str(e)}")
-
     return state
 
 # === Finalizer ===
@@ -200,11 +175,9 @@ def finalize(state: AgentState) -> AgentState:
 
     tools_used = []
     reasoning = {"thought": "No steps executed.", "next_action": "Abort"}
-
     try:
         plan_obj = Plan(**state["plan"])
         tools_used = [step.assigned_agent.value for step in plan_obj.subtasks]
-
         if state["step_index"] > 0 and plan_obj.subtasks:
             last_agent = plan_obj.subtasks[state["step_index"] - 1].assigned_agent
             reasoning = reasoning_for_step(
@@ -239,9 +212,7 @@ def finalize(state: AgentState) -> AgentState:
         answers=state["answers"],
         errors=state["errors"]
     )
-
     return state
-
 
 # === Controller ===
 def should_continue(state: AgentState) -> str:
@@ -282,7 +253,7 @@ def run_agent(task_id: str, user_prompt: str) -> str:
         questions=[],
         answers=[],
         step_index=0,
-        image_base64=None  # ✅ init base64 buffer
+        image_base64=None
     )
     final_state = agent_graph.invoke(state)
     return final_state["results"][-1] if final_state["results"] else "<error>No result returned</error>"

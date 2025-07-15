@@ -4,11 +4,10 @@ from typing import List, Dict
 from dotenv import load_dotenv
 load_dotenv()
 
-# Ensure project root is in sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from langchain_openai import ChatOpenAI
-from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQAWithSourcesChain
 from langchain_core.prompts import PromptTemplate
 
 
@@ -19,13 +18,8 @@ def answer_questions_with_llm(
     temperature: float = 0.1
 ) -> List[Dict]:
     """
-    Answers questions using Retrieval-Augmented QA with GPT-4o and a custom retriever.
-
-    Args:
-        questions: list of question strings
-        retriever: LangChain retriever object (e.g., FAISS retriever)
-        model_name: OpenAI model to use
-        temperature: completion randomness
+    Improved RetrievalQA answering tool.
+    Uses RetrievalQAWithSourcesChain for better grounded answers.
 
     Returns:
         List of {"question": ..., "answer": ...}
@@ -38,10 +32,9 @@ def answer_questions_with_llm(
         template="""
 You are a highly capable compliance assistant helping complete a contractor pre-qualification form.
 
-Your task is to answer the QUESTION below using only the relevant CONTEXT extracted from company documentation.
-Analyze all the provided context and use it to accurately answer the question.
-
-Respond clearly and concisely.
+You MUST answer ONLY based on the CONTEXT below.
+If the answer cannot be found in the context, respond with:
+"I cannot find the answer in the provided documents."
 
 ---
 
@@ -53,25 +46,40 @@ Respond clearly and concisely.
 
 ---
 
-✅ ANSWER:
+✅ ANSWER (be concise):
 """
     )
 
-    qa_chain = RetrievalQA.from_chain_type(
+    qa_chain = RetrievalQAWithSourcesChain.from_chain_type(
         llm=llm,
         retriever=retriever,
         chain_type="map_reduce",
-        chain_type_kwargs={"question_prompt": QA_PROMPT}
-        # Optional: return_source_documents=True
+        chain_type_kwargs={"question_prompt": QA_PROMPT},
+        return_source_documents=True
     )
 
     results = []
     print(f"[🔍] Answering {len(questions)} questions...")
+
     for i, q in enumerate(questions, 1):
         try:
             print(f"  Q{i}: {q}")
-            answer = qa_chain.run(q)
-            results.append({"question": q, "answer": answer})
+            response = qa_chain.invoke({"question": q})
+            answer = response.get("answer", "").strip()
+            sources = response.get("sources", "")
+
+            if not answer:
+                answer = "I cannot find the answer in the provided documents."
+
+            print(f"    ✅ Answer: {answer}")
+            if sources:
+                print(f"    📂 Sources: {sources}")
+
+            results.append({
+                "question": q,
+                "answer": f"{answer} (Sources: {sources})" if sources else answer
+            })
+
         except Exception as e:
             results.append({"question": q, "answer": f"[Error]: {str(e)}"})
 
