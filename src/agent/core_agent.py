@@ -261,4 +261,10 @@ def run_agent(task_id: str, user_prompt: str) -> str:
 # === CLI Test ===
 if __name__ == "__main__":
     prompt = "Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files."
-    print(run_agent("agent_task_003", prompt))
+    res=run_agent("agent_task_003", prompt)
+    print(res)
+    # Save to file
+    with open("agent_output.xml", "w", encoding="utf-8") as f:
+        f.write(res)
+
+    print("\n✅ Full output saved to agent_output.xml")

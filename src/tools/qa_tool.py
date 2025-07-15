@@ -28,13 +28,15 @@ def answer_questions_with_llm(
     llm = ChatOpenAI(model=model_name, temperature=temperature)
 
     QA_PROMPT = PromptTemplate(
-        input_variables=["context", "question"],
-        template="""
+        
+       input_variables=["context", "question"],
+       template="""
 You are a highly capable compliance assistant helping complete a contractor pre-qualification form.
 
-You MUST answer ONLY based on the CONTEXT below.
-If the answer cannot be found in the context, respond with:
-"I cannot find the answer in the provided documents."
+Analyze the CONTEXT carefully and provide the most accurate answer possible based on the information given . 
+If the answer is not explicitly stated but can be inferred logically, provide the inferred answer and mention it is an inference.  
+If there is absolutely no relevant information, respond with:
+"I cannot determine the answer from the provided documents."
 
 ---
 
@@ -46,9 +48,10 @@ If the answer cannot be found in the context, respond with:
 
 ---
 
-✅ ANSWER (be concise):
+✅ ANSWER (clear and concise):
 """
-    )
+)
+
 
     qa_chain = RetrievalQAWithSourcesChain.from_chain_type(
         llm=llm,

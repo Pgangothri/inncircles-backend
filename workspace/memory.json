@@ -1558,6 +1558,334 @@
         }
       ],
       "errors": []
+    },
+    {
+      "timestamp": "2025-07-15T20:29:20.381123",
+      "task_id": "agent_task_003",
+      "prompt": "Consider the pre-qual questionnaire as form containing multiple questions and answer all of them from the rest of the files.",
+      "plan": {
+        "goal": "Answer all questions from the pre-qual questionnaire using information from the rest of the files.",
+        "subtasks": [
+          {
+            "step": 1,
+            "description": "Read and extract information from the rest of the files to gather context for answering the questions.",
+            "assigned_agent": "document_agent"
+          },
+          {
+            "step": 0,
+            "description": "Extract questions from the pre-qual questionnaire form using OCR/LLM.",
+            "assigned_agent": "question_agent"
+          },
+          {
+            "step": 2,
+            "description": "Answer the extracted questions using the gathered document context.",
+            "assigned_agent": "retrieval_agent"
+          }
+        ]
+      },
+      "answers": [
+        {
+          "question": "1. [Company Information]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/ Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "2. What is the date of completion?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\ISO 9001 Streamform Contractors.pdf)"
+        },
+        {
+          "question": "3. What is your company name?",
+          "answer": "The company name is Streamform Contractors, LLC. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "4. What is your company address?",
+          "answer": "The company address is 1234 Builder\u2019s Lane, Houston, TX 77001, United States. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "5. What is your company telephone number?",
+          "answer": "The company telephone number is +1 (713) 555-0198. (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx, workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "6. What is your company e-mail address?",
+          "answer": "info@Streamformcontractors.com (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "7. What is your SIC code?",
+          "answer": "1542 (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx, workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "8. What is your company type? (General Contractor, Mechanical, etc.)",
+          "answer": "General Contractor (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "9. Describe the services performed by your company.",
+          "answer": "Our company provides a range of services including construction services such as construction design, equipment manufacturing and installation, service work, manpower and resource management, and project maintenance. Additionally, we offer fabrication services including structural steel fabrication, custom metal fabrication, modular pre-fabrication, precision welding services, sheet metal work, and on-site steel erection and assembly. (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "10. [Insurance]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Insurance Policies.docx, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "11. What is your automobile insurance company name and telephone number? (Attach certificate showing Innophos as additional insured)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Insurance Policies.docx)"
+        },
+        {
+          "question": "12. What is your workers' compensation insurance company name and telephone number? (Attach certificate showing Innophos as additional insured)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Insurance Policies.docx)"
+        },
+        {
+          "question": "13. What is your general liability insurance company name and telephone number? (Attach certificate showing Innophos as additional insured)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Insurance Policies.docx)"
+        },
+        {
+          "question": "14. [Resources]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "15. What is the name of your company safety and health contact?",
+          "answer": "The name of the company safety and health contact is Kevin Brooks. (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "16. What is the email address and phone number of your company safety and health contact?",
+          "answer": "I cannot determine the email address and phone number of the company safety and health contact from the provided documents, as there are conflicting pieces of information."
+        },
+        {
+          "question": "17. [Safety, Health, and Environmental Program Elements]",
+          "answer": "I don't know the answer to this question based on the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "18. Does your company have a written safety program? (Yes/No) (If yes, submit Table of Contents with your completed questionnaire)",
+          "answer": "Yes, the company has a written safety program. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "19. Does your company have a written procedure to ensure safety and health issues are preplanned into each job? (Yes/No)",
+          "answer": "Yes, the company has a written procedure to ensure safety and health issues are preplanned into each job. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Safety Report 2021.docx)"
+        },
+        {
+          "question": "20. Does your company have a written incident investigation procedure? (Yes/No)",
+          "answer": "Yes, the company has a written incident investigation procedure. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "21. Do your procedures require near-miss incidents to be investigated? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "22. Does your company have a written safety training program? (Yes/No) (If yes, submit a List of Courses with the completed questionnaire)",
+          "answer": "Yes, the company has a written safety training program. (Sources: workspace/Knowledge Base\\Safety Report 2021.docx)"
+        },
+        {
+          "question": "23. Does the safety training program include new employee/project orientation? (Yes/No)",
+          "answer": "Yes, the safety training program includes new employee/project orientation. (Sources: workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Safety Report 2022.docx)"
+        },
+        {
+          "question": "24. Does the safety training program include toolbox safety meetings? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "25. Does the safety training program include daily job briefings? (Yes/No)",
+          "answer": "Yes. The safety training program includes conducting daily pre-task safety briefings. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "26. Does the safety training program include supervisor safety training? (Yes/No)",
+          "answer": "Yes, the safety training program includes supervisor safety training. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "27. Does the safety training program include task-specific training? (Yes/No)",
+          "answer": "Yes, the safety training program includes task-specific training. (Sources: workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "28. Does the safety training program include applicable OSHA required training? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "29. Does your company have a written policy to ensure that only employees who are qualified by training and experience are allowed to operate equipment, tools, machinery, and vehicles? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "30. Does your company designate, train, and certify competent people as required by the applicable OSHA standards? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "31. Does your company have a written procedure to audit projects to ensure all projects are in compliance with applicable laws, standards, requirements, etc.? (Yes/No)",
+          "answer": "Yes, the company has a written procedure to audit projects to ensure all projects are in compliance with applicable laws, standards, requirements, etc. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "32. Does your company have a written procedure to screen subcontractors based on their past safety performance? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "33. Does your product or service have the potential to create a significant environmental impact? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "34. Do you have a management system implemented (e.g., ISO 9000, VPP, etc.)? (Yes/No) (If yes, please submit a copy of your certificate(s) with the completed questionnaire)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\ISO 9001 Streamform Contractors.pdf, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "35. Does your company certify that they have an employee background screening program that the employees working at the facility have successfully passed the screening process? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "36. [Drug Free Workplace Program]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "37. Does your company have a written drug-free workplace program that includes drug testing? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "38. If the answer to question 37 is \u201cyes\u201d, does your written drug-free workplace program include pre-employment drug and alcohol testing? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "39. If the answer to question 37 is \u201cyes\u201d, does your written drug-free workplace program include post-lost time injuries drug and alcohol testing? (Yes/No)",
+          "answer": "Yes, the written drug-free workplace program includes post-accident testing, which can be inferred to cover post-lost time injuries drug and alcohol testing. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "40. If the answer to question 37 is \u201cyes\u201d, does your written drug-free workplace program include random drug and alcohol testing? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "41. If the answer to question 37 is \u201cyes\u201d, does your written drug-free workplace program include supervisor and employee training? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "42. [Citations]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "43. Has your company received any Federal or State OSHA citations within the last three years? (Yes/No) (If yes, send information about the citation(s) and abatement)",
+          "answer": "Yes, Streamform Contractors has received Federal OSHA citations within the last three years. They are in the process of implementing corrective actions to address a citation and will submit documentation of abatement to OSHA by the required date. Additionally, they received a Federal OSHA citation for a De Minimis violation on June 5, 2025. (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx, workspace/Knowledge Base\\OSHA Deminimus.docx)"
+        },
+        {
+          "question": "44. If the answer to question 43 is \u201cyes\u201d, how many of each of the following types of citations have you received? (Willful, Imminent Danger, Serious, Non-Serious, De Minimus)",
+          "answer": "I cannot determine the answer from the provided documents, except that there is one De Minimis citation mentioned. (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx)"
+        },
+        {
+          "question": "45. Has your company received a Notice of Violation from the EPA within the last three years? (Yes/No) (If yes, send information about the violation(s) and corrective action)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx, workspace/Knowledge Base\\OSHA Deminimus.docx)"
+        },
+        {
+          "question": "46. [Lost-Time Injuries and Illness Statistics]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Safety Report 2022.docx)"
+        },
+        {
+          "question": "47. How many man-hours has your company worked in each of the last three years?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Safety Report 2022.docx)"
+        },
+        {
+          "question": "48. How many OSHA recordable injuries did your company experience in each of the last three years?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Safety Report 2022.docx)"
+        },
+        {
+          "question": "49. Based on the formula (Number of OSHA recordables x 200,000 / man-hours worked), what are your incident rates for each of the last three years?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Safety Report 2022.docx, workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "50. How many lost-time injuries has your company experienced in each of the last three years?",
+          "answer": "I cannot determine the total number of lost-time injuries for each of the last three years from the provided documents. The company has experienced 1 lost-time injury in the last year, but there is no information provided about the number of lost-time injuries in the two years prior. (Sources: workspace/Knowledge Base\\Safety Report 2023.docx)"
+        },
+        {
+          "question": "51. Based on the formula (Number of lost time injuries and illnesses x 200,000 / man-hours worked), what is your lost workday case rate for each of the last three years?",
+          "answer": "I cannot determine the lost workday case rate for each of the last three years from the provided documents. (Sources: workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Safety Report 2022.docx, workspace/Knowledge Base\\Safety Report 2021.docx)"
+        },
+        {
+          "question": "52. How many fatalities has your company experienced in each of the last three years? (Send summary of what happened and corrective action for each)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Safety Report 2022.docx)"
+        },
+        {
+          "question": "53. List your company\u2019s Workers\u2019 Compensation Experience Modification Rate (EMR) for each of the last three years? (Submit EMR for each of last 3 years on your insurance company letterhead)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Safety Report 2023.docx, workspace/Knowledge Base\\Safety Report 2021.docx)"
+        },
+        {
+          "question": "54. [Certification]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "55. Is there any additional information you feel we need to know to properly evaluate your company\u2019s safety and health program? (If yes, please explain below or attach additional sheets)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "56. What is the name of the person completing this questionnaire? (Please print)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\ISO 9001 Streamform Contractors.pdf, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Insurance Policies.docx, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "57. What is the signature of the person completing this questionnaire?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\ISO 9001 Streamform Contractors.pdf)"
+        },
+        {
+          "question": "58. What is the title of the person completing this questionnaire?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\ISO 9001 Streamform Contractors.pdf, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "59. [Contractor Statement of Compliance]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "60. Do you understand Innophos site safety rules and applicable procedures? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "61. Do you agree to comply with Innophos site safety rules and procedures, applicable OSHA regulations, and to follow recognized and generally accepted safety practices? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Contractors Company Profile Latestt.docx)"
+        },
+        {
+          "question": "62. Will Innophos rules and procedures be reviewed with your company\u2019s personnel who will be working at Innophos? (Yes/No)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Insurance Policies.docx, workspace/Knowledge Base\\Streamform Drug Free Workplace Program.docx)"
+        },
+        {
+          "question": "63. Will your company\u2019s personnel abide by Innophos rules and procedures, and understand hazards before starting work? (Yes/No)",
+          "answer": "Yes. (Sources: workspace/Knowledge Base\\Safety Report 2021.docx, workspace/Knowledge Base\\Safety Report 2022.docx, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "64. What is the name of the person signing the contractor statement of compliance? (Please print)",
+          "answer": "John Smith (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "65. What is the signature of the person signing the contractor statement of compliance?",
+          "answer": "The signature of the person signing the contractor statement of compliance is John Smith. (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "66. What is the title of the person signing the contractor statement of compliance?",
+          "answer": "The title of the person signing the contractor statement of compliance is \"President.\" (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "67. What is the company name of the person signing the contractor statement of compliance?",
+          "answer": "Streamform Contractors, LLC (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "68. What is the date of signing the contractor statement of compliance?",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\OSHA Serious Violation 2.docx, workspace/Knowledge Base\\OSHA Deminimus.docx)"
+        },
+        {
+          "question": "69. [Mandatory Submission Document Checklist]",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "70. Safety Program Table of Contents (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "71. Safety Training Program (List of Courses) (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform Safety Training Plan.pdf, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "72. Safety Management System Certificate (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        },
+        {
+          "question": "73. Information for OSHA Federal or State Citation(s) (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf)"
+        },
+        {
+          "question": "74. Information for EPA Violation(s) (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\OSHA Deminimus.docx, workspace/Knowledge Base\\OSHA Serious Violation 2.docx)"
+        },
+        {
+          "question": "75. Information for all fatal injuries or illnesses (Contractor to check off what is provided)",
+          "answer": "I cannot determine the answer from the provided documents. (Sources: workspace/Knowledge Base\\Streamform_Written_Safety_Program.pdf, workspace/Knowledge Base\\Streamform Safety Training Plan.pdf)"
+        }
+      ],
+      "errors": []
     }
   ]
 }
